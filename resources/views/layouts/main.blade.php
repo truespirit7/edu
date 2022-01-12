@@ -101,6 +101,17 @@
                                     </li>
                                     <li><a href="about-us.html">About</a></li>
                                     <li><a href="contact.html">Contact</a></li>
+                                    @guest
+                                    <li><a href={{route('login')}}>Войти</a></li>
+                                    @else
+                                    <li><a href={{route('logout')}}
+                                    onclick = "event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    Выйти</a>
+                                    <form id = "logout-form" action ="{{route('logout')}}" method = "POST" style = "display = none;">
+                                    @csrf
+                                    </li>
+                                    @endguest
                                 </ul>
 
                                 <!-- Search Form -->
