@@ -109,7 +109,7 @@ class PostController extends Controller
         $previewImg = $request->preview_img;
         if($previewImg) {
             $previewImgPath = Storage::put('/public/images', $previewImg);
-            $previewImgPath = substr($previ ewImgPath, 6);
+            $previewImgPath = substr($previewImgPath, 6);
             $post->preview_img = $previewImgPath;
         }
         $post -> category_id = $request->cat_id;
