@@ -25,12 +25,12 @@
                 <!-- Post Content -->
                 <div class="slide-post-content h-100 d-flex align-items-center">
                     <div class="slide-post-text">
-                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">MAY 01, 2018 / lifestyle</p>
+                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">11 января, 2022 / Древний Рим</p>
                         <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
-                            <h2>We’ve Launched More May Gal Meets Glam Collection Dresses</h2>
+                            <h2>История Древнего Рима -  от Республики к Империи</h2>
                         </a>
-                        <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a>
+                        <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">Во время царского периода Рим был небольшим государством, которое занимало лишь часть территории Лация — области проживания племени латинов. В период Ранней Республики Рим значительно расширил свою территорию, благодаря многочисленным войнам.</p>
+                        <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Читать далее</a>
                     </div>
                     <!-- Page Count -->
                     <div class="page-count"></div>

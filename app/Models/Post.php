@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    
-    $table = 'posts';
-    $guarded = false;
+
+    protected $table = 'posts';
+    protected $guarded = false;
+
+    public function category(){
+        return $this->belongsTo('App\Models\Category', 'category_id');
+    }
 }

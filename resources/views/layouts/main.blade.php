@@ -48,8 +48,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="#">Pages</a>
+                                    <li><a href="index.html">Главная</a></li>
+                                    <li><a href="#">Курсы</a>
                                         <ul class="dropdown">
                                             <li><a href="index.html">Home</a></li>
                                             <li><a href="archive-blog.html">Archive Blog</a></li>
@@ -59,7 +59,7 @@
                                             <li><a href="typography.html">Typography</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Catagories</a>
+                                    <li><a href="#">Категории</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="#">- Features</a></li>
@@ -99,8 +99,8 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="about-us.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about-us.html">О проекте</a></li>
+                                    <li><a href="contact.html">Контакты</a></li>
                                     @guest
                                     <li><a href={{route('login')}}>Войти</a></li>
                                     @else
@@ -117,7 +117,7 @@
                                 <!-- Search Form -->
                                 <div class="search-form">
                                     <form action="#" method="get">
-                                        <input type="search" name="search" class="form-control" placeholder="Search and hit enter...">
+                                        <input type="search" name="search" class="form-control" placeholder="Введите для поиска">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>

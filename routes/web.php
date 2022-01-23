@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PostController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +24,7 @@ Auth::routes();
 
 Route::middleware(['role:admin'])->prefix('dashboard')->group( function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-    });
+    Route::resource('category', Admin\CategoryController::class);
+    Route::resource('post', Admin\PostController::class);
+
+});
