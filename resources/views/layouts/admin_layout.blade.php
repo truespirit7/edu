@@ -217,7 +217,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href={{route('post.index')}} class="nav-link">
+                <a href={{route('/')}} class="nav-link">
                   <p>Все статьи</p>
                 </a>
               </li>

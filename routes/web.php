@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\PostController;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\Main\IndexController::class, 'index'])->name('index');
 
 Auth::routes();
 
