@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->text('excerpt');
             $table->string('preview_img');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
@@ -25,7 +26,6 @@ class CreatePostsTable extends Migration
             $table->foreign('category_id', 'post_category_fk')->references('id')->on('categories');
         });
     }
-
     /**
      * Reverse the migrations.
      *

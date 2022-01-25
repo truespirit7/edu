@@ -15,8 +15,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $rulesTitle = ['required', 'string', 'unique:posts', 'max:300'];
+    protected $rulesTitle = ['required', 'string', 'unique:posts', 'max:150'];
     protected $rulesContent = ['required', 'string', 'unique:posts'];
+    protected $rulesExcerpt = ['required', 'string', 'unique:excerpt', 'max:250'];
     protected $rulesImage = ['nullable','image', 'mimes:jpeg,jpg,png,gif'];
 
     protected $rulesUpdateTitle = ['required', 'string', 'max:300'];
@@ -51,11 +52,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = $request->validate(['title'=>$this->rulesTitle, 'content'=>$this->rulesContent, 'preview_img'=>$this->rulesImage]);
+        $validation = $request->validate(['title'=>$this->rulesTitle, 'content'=>$this->rulesContent, 'excerpt'=>$this-> rulesExcerpt, 'preview_img'=>$this->rulesImage]);
         $newPost = new Post();
         $newPost->title= $request->title;
         $newPost->content= $request->content;
-        $previewImg = $request->preview_img;
+        $newPost->excerpt= $request->excerpt;
+        $previewImчg = $request->preview_img;
         $previewImgPath = Storage::put('/public/images', $previewImg);
         $previewImgPath = substr($previewImgPath, 6);
         $newPost->preview_img = $previewImgPath;

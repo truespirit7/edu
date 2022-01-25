@@ -128,11 +128,11 @@
                                 <div class="single-blog-post mb-50">
                                     <!-- Thumbnail -->
                                     <div class="post-thumbnail">
-                                        <a href="#"><img src="" alt=""></a>
+                                        <a href="#"><img src="{{  asset('storage/' . $post['preview_img']) }}" alt=""></a>
                                     </div>
                                     <!-- Content -->
                                     <div class="post-content">
-                                        <p class="post-date">MAY 10, 2018 / life</p>
+                                        <p class="post-date">{{substr($post['created_at'], -20, 10)}} / life</p>
                                         <a href="#" class="post-title">
                                             <h4>{{$post->title}}</h4>
                                         </a>

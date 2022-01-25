@@ -59,7 +59,12 @@
                                 </div>
 
                                 <div class="form-group" required>
+                                    <label>Текст статьи</label>
                                     <textarea id="text" name="content" class="editor" cols="30" rows="15"></textarea>
+                                </div>
+                                <div class="form-group" required>
+                                    <label>Краткое описание статьи</label>
+                                    <textarea id="text" name="excerpt" class="editor" cols="30" rows="3"></textarea>
                                 </div>
                                 <label>Добавить изображение</label>
                                 <div class="input-group" >
