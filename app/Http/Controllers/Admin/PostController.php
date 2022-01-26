@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     protected $rulesTitle = ['required', 'string', 'unique:posts', 'max:150'];
     protected $rulesContent = ['required', 'string', 'unique:posts'];
-    protected $rulesExcerpt = ['required', 'string', 'unique:posts', 'max:250'];
+    protected $rulesExcerpt = ['required', 'string', 'unique:posts', 'max:150'];
     protected $rulesImage = ['nullable','image', 'mimes:jpeg,jpg,png,gif'];
 
     protected $rulesUpdateTitle = ['required', 'string', 'max:300'];
