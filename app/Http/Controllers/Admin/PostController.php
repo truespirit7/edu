@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     protected $rulesTitle = ['required', 'string', 'unique:posts', 'max:150'];
     protected $rulesContent = ['required', 'string', 'unique:posts'];
-    protected $rulesExcerpt = ['required', 'string', 'unique:excerpt', 'max:250'];
+    protected $rulesExcerpt = ['required', 'string', 'unique:posts', 'max:250'];
     protected $rulesImage = ['nullable','image', 'mimes:jpeg,jpg,png,gif'];
 
     protected $rulesUpdateTitle = ['required', 'string', 'max:300'];
@@ -57,7 +57,7 @@ class PostController extends Controller
         $newPost->title= $request->title;
         $newPost->content= $request->content;
         $newPost->excerpt= $request->excerpt;
-        $previewImчg = $request->preview_img;
+        $previewImg = $request->preview_img;
         $previewImgPath = Storage::put('/public/images', $previewImg);
         $previewImgPath = substr($previewImgPath, 6);
         $newPost->preview_img = $previewImgPath;

@@ -136,7 +136,7 @@
                                         <a href="#" class="post-title">
                                             <h4>{{$post->title}}</h4>
                                         </a>
-                                        <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+                                        <p class="post-excerpt">{{$post['excerpt']}}</p>
                                     </div>
                                 </div>
                             </div>
