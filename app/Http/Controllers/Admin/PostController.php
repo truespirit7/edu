@@ -77,7 +77,12 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-    //
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+
+        return view('home.post', [
+            'categories' => $categories,
+            'post' => $post,
+        ]);
     }
 
     /**
@@ -108,6 +113,7 @@ class PostController extends Controller
         $validation = $request->validate(['title'=>$this->rulesUpdateTitle, 'content'=>$this->rulesUpdateContent, 'preview_img'=>$this->rulesImage]);
         $post->title= $request->title;
         $post->content= $request->content;
+        $post->excerpt= $request->excerpt;
         $previewImg = $request->preview_img;
         if($previewImg) {
             $previewImgPath = Storage::put('/public/images', $previewImg);

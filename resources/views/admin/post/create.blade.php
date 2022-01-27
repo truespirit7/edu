@@ -62,9 +62,10 @@
                                     <label>Текст статьи</label>
                                     <textarea id="text" name="content" class="editor" cols="30" rows="15"></textarea>
                                 </div>
+                                <label>Краткое описание статьи</label>
                                 <div class="form-group" required>
-                                    <label>Краткое описание статьи</label>
-                                    <textarea id="text" name="excerpt" class="editor" cols="30" rows="3"></textarea>
+                                    <textarea id="text" name="excerpt" cols="30" rows="3" maxlength="150"></textarea>
+
                                 </div>
                                 <label>Добавить изображение</label>
                                 <div class="input-group" >

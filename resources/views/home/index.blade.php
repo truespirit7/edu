@@ -132,8 +132,10 @@
                                     </div>
                                     <!-- Content -->
                                     <div class="post-content">
-                                        <p class="post-date">{{substr($post['created_at'], -20, 10)}} / life</p>
-                                        <a href="#" class="post-title">
+
+                                            <p class="post-date">{{substr($post['created_at'], -20, 10)}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach </p>
+
+                                        <a href="{{ route('post.show', $post) }}" class="post-title">
                                             <h4>{{$post->title}}</h4>
                                         </a>
                                         <p class="post-excerpt"> {{$post['excerpt']}}</p>

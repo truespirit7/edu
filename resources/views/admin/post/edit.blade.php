@@ -64,8 +64,11 @@
                                 <div class="form-group" required>
                                     <textarea name="content" class="editor">{{ $post['content'] }}</textarea>
                                 </div>
+                                <label>Изменить краткое описание статьи</label>
+                                <div class="form-group" required>
+                                    <textarea id="text" name="excerpt" cols="45" rows="3" maxlength="150">{{$post['excerpt']}}</textarea>
 
-                                <div class="form-group">
+                                    <div class="form-group">
                                     <label for="feature_image">Изображение статьи</label>
                                     <img src="{{  asset('storage/' . $post['preview_img']) }}" alt="" class="img-uploaded"
                                         style="display: block; width: 300px">
