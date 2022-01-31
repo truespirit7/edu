@@ -19,7 +19,8 @@ use App\Http\Controllers\Admin\PostController;
 */
 
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
-Route::resource('post', Admin\PostController::class)->only('show');
+//Route::get('/post', [App\Http\Controllers\Home\PostController::class, 'show']);
+Route::get('/article/{id}', [App\Http\Controllers\Home\PostController::class, 'show'])->name('article');
 Auth::routes();
 Route::middleware(['role:admin'])->prefix('dashboard')->group( function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');

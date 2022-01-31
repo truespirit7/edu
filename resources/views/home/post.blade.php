@@ -34,7 +34,7 @@
 
                             <div class="text-center mb-50">
                                 <p class="post-date">MAY 01, 2018 / lifestyle</p>
-                                <h2 class="post-title">Express recipes: Give a twist to your classic moong dal with this recipe</h2>
+                                <h2 class="post-title">{{$post->title}}</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
                                     <a href="#"><span>by</span> Colorlib</a>

@@ -77,12 +77,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $categories = Category::orderBy('created_at', 'DESC')->get();
 
-        return view('home.post', [
-            'categories' => $categories,
-            'post' => $post,
-        ]);
     }
 
     /**
