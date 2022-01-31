@@ -12,10 +12,10 @@
     <title>@yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="{{ asset('img/core-img/favicon.ico')}}">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('style.css')}}">
 
 </head>
 
@@ -143,61 +143,6 @@
 
     @yield('content')
 
-    <!-- ##### Instagram Area Start ##### -->
-    <div class="follow-us-instagram">
-        <div class="instagram-content d-flex flex-wrap align-items-center">
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta1.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta2.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta3.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta4.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta5.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta6.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta7.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Single Instagram Slide -->
-            <div class="single-instagram">
-                <img src="img/blog-img/insta8.jpg" alt="">
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Instagram Area End ##### -->
-
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <div class="container">
@@ -231,15 +176,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="{{ asset('js/jquery/jquery-2.2.4.min.js') }}"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="{{ asset('js/bootstrap/popper.min.js')}}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="{{ asset('js/bootstrap/bootstrap.min.js')}}"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="{{ asset('js/plugins/plugins.js')}}"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="{{ asset('js/active.js')}}"></script>
 </body>
 
 </html>

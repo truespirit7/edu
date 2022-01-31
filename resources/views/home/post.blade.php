@@ -1,5 +1,7 @@
 @extends('layouts.main')
+
 @section('title', 'Название поста')
+
 @section('content')
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
@@ -248,4 +250,4 @@
         </div>
     </section>
     <!-- ##### Blog Content Area End ##### -->
-    @endsection
+@endsection

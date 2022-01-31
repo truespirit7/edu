@@ -19,9 +19,8 @@ use App\Http\Controllers\Admin\PostController;
 */
 
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
-
+Route::resource('post', Admin\PostController::class)->only('show');
 Auth::routes();
-
 Route::middleware(['role:admin'])->prefix('dashboard')->group( function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('category', Admin\CategoryController::class);
