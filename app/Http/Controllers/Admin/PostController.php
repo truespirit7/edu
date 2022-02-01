@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -77,7 +78,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+        $date = Carbon::parse($post->created_at);
+        return view('home.post', [
+            'categories' => $categories,
+            'post' => $post,
+            'date'=>$date
+        ]);
     }
 
     /**

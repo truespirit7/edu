@@ -10,14 +10,14 @@ use App\Models\Post;
 class PostController extends Controller
 {
 
-    public function show(Post $post)
+    public function show( $post)
     {
         dd($post);
-//        $categories = Category::orderBy('created_at', 'DESC')->get();
-//
-//        return view('home.post', [
-//            'categories' => $categories,
-//            'post' => $post,
-//        ]);
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+
+        return view('home.post', [
+            'categories' => $categories,
+            'post' => $post,
+        ]);
     }
 }
