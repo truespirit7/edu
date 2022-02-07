@@ -145,23 +145,8 @@
 
                             </div>
                             @endforeach
-                            <!-- Single Blog Post -->
-                            <div class="col-12 col-sm-6">
-                                <div class="single-blog-post mb-50">
-                                    <!-- Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <a href="#"><img src="img/blog-img/2.jpg" alt=""></a>
-                                    </div>
-                                    <!-- Content -->
-                                    <div class="post-content">
-                                        <p class="post-date">MAY 17, 2018 / Sport</p>
-                                        <a href="#" class="post-title">
-                                            <h4>A Closer Look At Our Front Porch Items From Lowe’s</h4>
-                                        </a>
-                                        <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            {{ $posts -> links() }}
+
 
 {{--                            <!-- Single Blog Post -->--}}
 {{--                            <div class="col-12 col-sm-6">--}}
