@@ -44,7 +44,7 @@
 
                             <!-- Post Thumbnail -->
                             <div class="post-thumbnail mb-50">
-                                <img src="img/blog-img/8.jpg" alt="">
+                                <img src="{{asset('storage/' . $post['preview_img'])}}" alt="">
                             </div>
 
                             <!-- Post Text -->
