@@ -18,7 +18,12 @@ use App\Http\Controllers\Admin\PostController;
 |
 */
 
+Route::get('/redirecttogoogle', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogleoogle']);
+Route::get('/callbackgoogle', [App\Http\Controllers\Auth\LoginController::class, 'callbackGoogle']);
+Route::get('/regOrLogin', [App\Http\Controllers\Auth\LoginController::class, 'regOrLogin']);
+
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
+
 //Route::get('/post', [App\Http\Controllers\Home\PostController::class, 'show']);
 Auth::routes();
 Route::middleware(['role:admin'])->prefix('dashboard')->group( function () {
