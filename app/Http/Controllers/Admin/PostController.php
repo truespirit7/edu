@@ -28,19 +28,12 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get()->paginate(6);
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return(view('admin.post.index', ['posts'=>$posts]));
         //return(dd ( ['posts'=>$posts]));
 
     }
-    public function indexcat(Category $category)
-    {
-        $posts = Post::orderBy('created_at', 'desc')->where('category_id', '=', $category->id)->get()->paginate(6);
-        return(view('admin.post.index', ['posts'=>$posts]));
 
-        //return(dd ( ['posts'=>$posts]));
-
-    }
 
     /**
      * Show the form for creating a new resource.
