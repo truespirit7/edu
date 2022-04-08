@@ -28,8 +28,8 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return(view('admin.post.index', ['posts'=>$posts]));
+        $posts = Post::orderBy('created_at', 'desc');
+        return(view('admin.post.index', ['posts'=>$posts->paginate(6)]));
         //return(dd ( ['posts'=>$posts]));
 
     }
