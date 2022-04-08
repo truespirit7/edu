@@ -48,7 +48,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Главная</a></li>
+                                    <li><a href="{{ route('index') }}">Журнал</a></li>
                                     <li><a href="#">Курсы</a>
                                         <ul class="dropdown">
                                             <li><a href="index.html">Home</a></li>
@@ -100,18 +100,8 @@
                                         </div>
                                     </li>
                                     <li><a href="about-us.html">О проекте</a></li>
-                                    <li><a href="contact.html">Контакты</a></li>
-                                    @guest
-                                    <li><a href={{route('login')}}>Войти</a></li>
-                                    @else
-                                    <li><a href={{route('logout')}}
-                                    onclick = "event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    Выйти</a>
-                                    <form id = "logout-form" action ="{{route('logout')}}" method = "POST" style = "display = none;">
-                                    @csrf
-                                    </li>
-                                    @endguest
+                                    <li><a href="contact.html">"Нейронный Сократ"</a></li>
+
                                 </ul>
 
                                 <!-- Search Form -->
@@ -121,15 +111,25 @@
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>
-
-                                <!-- Social Button -->
-                                <div class="top-social-info">
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="RSS Feed"><i class="fa fa-rss" aria-hidden="true"></i></a>
-                                </div>
+                                @guest
+                                    <li><a href={{route('login')}}>Войти</a></li>
+                                @else
+                                    <li><a href={{route('logout')}}
+                                            onclick = "event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        Выйти</a>
+                                        <form id = "logout-form" action ="{{route('logout')}}" method = "POST" style = "display = none;">
+                                        @csrf
+                                    </li>
+                                @endguest
+{{--                                <!-- Social Button -->--}}
+{{--                                <div class="top-social-info">--}}
+{{--                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="RSS Feed"><i class="fa fa-rss" aria-hidden="true"></i></a>--}}
+{{--                                </div>--}}
 
                             </div>
                             <!-- Nav End -->

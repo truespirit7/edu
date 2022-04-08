@@ -23,12 +23,17 @@ Route::get('/callbackgoogle', [App\Http\Controllers\Auth\LoginController::class,
 Route::get('/regOrLogin', [App\Http\Controllers\Auth\LoginController::class, 'regOrLogin']);
 
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
+Route::get('/category/{category}', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('postsByCategory');
 
 //Route::get('/post', [App\Http\Controllers\Home\PostController::class, 'show']);
 Auth::routes();
 Route::middleware(['role:admin'])->prefix('dashboard')->group( function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
     Route::resource('category', Admin\CategoryController::class);
+
+   // Route::get('/post/category', [Admin\PostController::class, 'index']);
     Route::resource('post', Admin\PostController::class);
+
 
 });

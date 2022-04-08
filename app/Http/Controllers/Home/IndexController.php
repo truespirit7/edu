@@ -9,10 +9,15 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-public function index()
+public function index($categoryId = 0 )
 {
     $categories = Category::orderBy('created_at', 'DESC')->get();
-    $posts = Post::paginate(6);
-    return view('home.index', [ 'posts'=> $posts, 'categories' => $categories ] );
+    $posts = Post::latest();
+    if($categoryId){
+        $posts -> where('category_id', $categoryId);
+    }
+    return view('home.index', [ 'posts'=> $posts->paginate(6), 'categories' => $categories ] );
 }
+
+
 }

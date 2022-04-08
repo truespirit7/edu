@@ -8,13 +8,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>
-                        </ol>
-                    </nav>
+{{--                    <nav aria-label="breadcrumb">--}}
+{{--                        <ol class="breadcrumb">--}}
+{{--                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>--}}
+{{--                            <li class="breadcrumb-item"><a href="#">Blog</a></li>--}}
+{{--                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>--}}
+{{--                        </ol>--}}
+{{--                    </nav>--}}
                 </div>
             </div>
         </div>
@@ -33,11 +33,11 @@
                         <div class="post-content">
 
                             <div class="text-center mb-50">
-                                <p class="post-date">{{$date->translatedFormat('d F Y')}} / lifestyle</p>
+                                <p class="post-date">{{$date->translatedFormat('d F Y')}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach</p>
                                 <h2 class="post-title">{{$post->title}}</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <a href="#"><span>by</span> Colorlib</a>
+                                    <a href="#"><span>Автор:</span> Colorlib</a>
                                     <a href="#">03 <span>Comments</span></a>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                 <!-- Related Post Area -->
                                 <div class="related-posts clearfix">
                                     <!-- Headline -->
-                                    <h4 class="headline">related posts</h4>
+                                    <h4 class="headline">Рекомендуем:</h4>
 
                                     <div class="row">
 
