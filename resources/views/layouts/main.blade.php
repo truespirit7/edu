@@ -50,53 +50,31 @@
                                 <ul>
                                     <li><a href="{{ route('index') }}">Журнал</a></li>
                                     <li><a href="#">Курсы</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="archive-blog.html">Archive Blog</a></li>
-                                            <li><a href="single-post.html">Single Post</a></li>
-                                            <li><a href="about-us.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="typography.html">Typography</a></li>
-                                        </ul>
+                                        <div class="megamenu">
+                                            <ul class="single-mega  ">
+                                                @foreach ($categories as $category)
+                                                    <li><a href="#">- {{ $category['title'] }}</a></li>
+                                                @endforeach
+
+
+
+
+
+                                            </ul>
                                     </li>
                                     <li><a href="#">Категории</a>
                                         <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- Features</a></li>
-                                                <li><a href="#">- Food</a></li>
-                                                <li><a href="#">- Travel</a></li>
-                                                <li><a href="#">- Recipe</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
+                                            <ul class="single-mega  ">
+                                                @foreach ($categories as $category)
+                                                    <li><a href="#">- {{ $category['title'] }}</a></li>
+                                                @endforeach
+
+
+
+
+
                                             </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- Features</a></li>
-                                                <li><a href="#">- Food</a></li>
-                                                <li><a href="#">- Travel</a></li>
-                                                <li><a href="#">- Recipe</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- Features</a></li>
-                                                <li><a href="#">- Food</a></li>
-                                                <li><a href="#">- Travel</a></li>
-                                                <li><a href="#">- Recipe</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">- Features</a></li>
-                                                <li><a href="#">- Food</a></li>
-                                                <li><a href="#">- Travel</a></li>
-                                                <li><a href="#">- Recipe</a></li>
-                                                <li><a href="#">- Bread</a></li>
-                                                <li><a href="#">- Breakfast</a></li>
-                                                <li><a href="#">- Meat</a></li>
-                                            </ul>
+
                                         </div>
                                     </li>
                                     <li><a href="about-us.html">О проекте</a></li>
