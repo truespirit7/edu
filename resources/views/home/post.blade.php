@@ -38,13 +38,13 @@
                                 <!-- Post Meta -->
                                 <div class="post-meta">
                                     <a href="#"><span>Автор:</span> Colorlib</a>
-                                    <a href="#">03 <span>Comments</span></a>
+{{--                                    <a href="#">03 <span>Comments</span></a>--}}
                                 </div>
                             </div>
 
                             <!-- Post Thumbnail -->
                             <div class="post-thumbnail mb-50">
-                                <img src="{{asset('storage/' . $post['preview_img'])}}" alt="">
+                                <img src="{{asset('storage/app/public' . $post['preview_img'])}}" alt="">
                             </div>
 
                             <!-- Post Text -->
@@ -60,14 +60,14 @@
                                 </div>
                                 {!! $post->content !!}
                                 <!-- Post Tags & Share -->
-                                <div class="post-tags-share">
-                                    <!-- Tags -->
-                                    <ol class="popular-tags d-flex flex-wrap">
-                                        <li><a href="#">HealthFood</a></li>
-                                        <li><a href="#">Yoga</a></li>
-                                        <li><a href="#">Life Style</a></li>
-                                    </ol>
-                                </div>
+{{--                                <div class="post-tags-share">--}}
+{{--                                    <!-- Tags -->--}}
+{{--                                    <ol class="popular-tags d-flex flex-wrap">--}}
+{{--                                        <li><a href="#">HealthFood</a></li>--}}
+{{--                                        <li><a href="#">Yoga</a></li>--}}
+{{--                                        <li><a href="#">Life Style</a></li>--}}
+{{--                                    </ol>--}}
+{{--                                </div>--}}
 
                                 <!-- Related Post Area -->
                                 <div class="related-posts clearfix">
