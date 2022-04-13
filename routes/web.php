@@ -25,7 +25,7 @@ Route::get('/regOrLogin', [App\Http\Controllers\Auth\LoginController::class, 're
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
 Route::get('/category/{category}', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('postsByCategory');
 
-//Route::get('/post', [App\Http\Controllers\Home\PostController::class, 'show']);
+Route::get('/article/{post}', [App\Http\Controllers\Home\PostController::class, 'showPost'])->name('article');
 Auth::routes();
 Route::middleware(['role:admin'])->prefix('dashboard')->group( function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');

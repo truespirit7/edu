@@ -27,11 +27,11 @@
                 <div class="slide-post-content h-100 d-flex align-items-center">
                     <div class="slide-post-text">
                         <p class="post-date" data-animation="fadeIn" data-delay="100ms">11 января, 2022 / Древний Рим</p>
-                        <a href="{{ route('post.show', $post)}}" class="post-title" data-animation="fadeIn" data-delay="300ms">
+                        <a href="{{ route('article', $post)}}" class="post-title" data-animation="fadeIn" data-delay="300ms">
                             <h2>{{$post->title}}</h2>
                         </a>
                         <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">{{$post['excerpt']}}</p>
-                        <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Читать далее</a>
+                        <a href="{{ route('article', $post)}}" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Читать далее</a>
                     </div>
                     <!-- Page Count -->
                     <div class="page-count"></div>
@@ -129,14 +129,14 @@
                                 <div class="single-blog-post mb-50">
                                     <!-- Thumbnail -->
                                     <div class="post-thumbnail">
-                                        <a href="#"><img src="{{  asset('storage/' . $post['preview_img']) }}" alt=""></a>
+                                        <a href="{{ route('article', $post)}}"><img src="{{  asset('storage/' . $post['preview_img']) }}" alt=""></a>
                                     </div>
                                     <!-- Content -->
                                     <div class="post-content">
 
                                             <p class="post-date">{{substr($post['created_at'], -20, 10)}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach </p>
 
-                                        <a href="{{ route('post.show', $post)}}" class="post-title">
+                                        <a href="{{ route('article', $post)}}" class="post-title">
 {{--                                            {{dd($post)}}--}}
                                             <h4>{{$post->title}}</h4>
                                         </a>
