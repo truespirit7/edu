@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title') - Админ-панель</title>
-
-  <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="/admin/plugins/select2/css/select2.min.css">
+ <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- select2 -->
   <!-- Daterange picker -->
   <link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
 </head>
@@ -249,6 +250,27 @@
               </li>
             </ul>
           </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Теги
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('tag.index') }}" class="nav-link">
+                            <p>Все теги</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('tag.create')}}" class="nav-link">
+                            <p>Добавить тег</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
       </nav>
       <!-- /.sidebar-menu -->
@@ -285,6 +307,13 @@
 <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="/admin/plugins/chart.js/Chart.min.js"></script>
+<!-- Select2 -->
+<script src="/admin/plugins/select2/js/select2.full.min.js"></script>
+<script>
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+</script>
 <!-- Sparkline -->
 <script src="/admin/plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->

@@ -22,8 +22,12 @@ Route::get('/redirecttogoogle', [App\Http\Controllers\Auth\LoginController::clas
 Route::get('/callbackgoogle', [App\Http\Controllers\Auth\LoginController::class, 'callbackGoogle']);
 Route::get('/regOrLogin', [App\Http\Controllers\Auth\LoginController::class, 'regOrLogin']);
 
+Route::get('/googleauth', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle']);
+Route::get('/googleauth/callback', [App\Http\Controllers\Auth\LoginController::class, 'callbackGoogle']);
+
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
 Route::get('/category/{category}', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('postsByCategory');
+Route::get('/tag/{tag}', [App\Http\Controllers\Home\IndexController::class, 'indexByTag'])->name('postsByTag');
 
 Route::get('/article/{post}', [App\Http\Controllers\Home\PostController::class, 'showPost'])->name('article');
 Auth::routes();
@@ -31,8 +35,9 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group( function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('category', Admin\CategoryController::class);
+    Route::resource('tag', Admin\TagController::class);
 
-   // Route::get('/post/category', [Admin\PostController::class, 'index']);
+    // Route::get('/post/category', [Admin\PostController::class, 'index']);
     Route::resource('post', Admin\PostController::class);
 
 

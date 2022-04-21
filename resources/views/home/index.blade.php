@@ -175,7 +175,22 @@
                                     <li><a href="{{ route('postsByCategory', $category) }}">{{ $category['title'] }}</a></li>
                                 @endforeach
                             </ol>
+
                         </div>
+                        <div class="single-widget-area mb-30">
+                            <!-- Title -->
+                            <div class="widget-title">
+                                <h6>Теги</h6>
+                            </div>
+                            <!-- Tags -->
+                            <ol class="popular-tags d-flex flex-wrap">
+                                @foreach ($tags as $tag)
+                                    <li><a href="{{ route('postsByTag', $tag) }}">{{ $tag['title'] }}</a></li>
+                                @endforeach
+                            </ol>
+
+                        </div>
+
 {{--                        <!-- ##### Single Widget Area ##### -->--}}
 {{--                        <div class="single-widget-area mb-30">--}}
 {{--                            <!-- Title -->--}}

@@ -67,6 +67,14 @@
                                     <textarea id="text" name="excerpt" cols="30" rows="3" maxlength="150"></textarea>
 
                                 </div>
+                                            <div class="form-group">
+                                                <label>Теги</label>
+                                                <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выбирите теги" style="width: 100%;">
+                                                    @foreach($tags as $tag)
+                                                        <option value="{{ $tag['id'] }}">{{ $tag['title'] }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                 <label>Добавить изображение</label>
                                 <div class="input-group" >
                                     <div class="custom-file">

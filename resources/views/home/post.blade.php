@@ -63,9 +63,16 @@
                                 <div class="post-tags-share">
                                     <!-- Tags -->
                                     <ol class="popular-tags d-flex flex-wrap">
-                                        <li><a href="#">HealthFood</a></li>
-                                        <li><a href="#">Yoga</a></li>
-                                        <li><a href="#">Life Style</a></li>
+                                        @foreach($postTags as $postTag)
+                                            @if ($postTag['post_id'] == $post['id'])
+                                                @foreach($tags as $tag)
+                                                    @if ($postTag['tag_id'] == $tag['id'])
+                                                        <li><a href="{{route('postsByTag', $tag)}}">{{$tag['title']}}</a></li>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+
+                                        @endforeach
                                     </ol>
                                 </div>
 

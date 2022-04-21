@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +44,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::orderBy('created_at', 'DESC')->get();
-        return(view('admin.post.create', ['categories'=>$categories]));
+        $tags = Tag::orderBy('created_at', 'DESC')->get();
+        return(view('admin.post.create', ['categories'=>$categories, 'tags'=>$tags]));
     }
 
     /**
@@ -54,6 +56,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request);
         $validation = $request->validate(['title'=>$this->rulesTitle, 'content'=>$this->rulesContent, 'excerpt'=>$this-> rulesExcerpt, 'preview_img'=>$this->rulesImage]);
         $newPost = new Post();
         $newPost->title= $request->title;
@@ -65,7 +68,11 @@ class PostController extends Controller
         $newPost->preview_img = $previewImgPath;
 
         $newPost -> category_id = $request->cat_id;
+        $tag_ids = $request->tag_ids;
         $newPost->save();
+        $newPost -> tags()->attach($tag_ids);
+        $newPost->save();
+
 //        $data= $request->all();
 //        dd($data);
          return redirect()->back()->withSuccess('Статья была успешно добавлена!');
@@ -79,10 +86,12 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $tags = Tag::orderBy('created_at', 'DESC')->get();
         $categories = Category::orderBy('created_at', 'DESC')->get();
         $date = Carbon::parse($post->created_at);
         return view('home.post', [
             'categories' => $categories,
+            'tags' => $tags,
             'post' => $post,
             'date'=>$date
         ]);
