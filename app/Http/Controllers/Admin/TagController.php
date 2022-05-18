@@ -54,7 +54,7 @@ class TagController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Tag $tag)
     {
         //
     }
@@ -94,9 +94,9 @@ class TagController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Tag $tag)
     {
-        $category->delete();
+        $tag->delete();
         return redirect()->back()->withSuccess('Категория была успешно удалена!');
     }
 }

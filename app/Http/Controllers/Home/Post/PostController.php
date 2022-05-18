@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Home\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\PostTag;
 use App\Models\Tag;
 use Carbon\Carbon;
@@ -18,6 +19,8 @@ class PostController extends Controller
      //    dd($post);
         $categories = Category::orderBy('created_at', 'DESC')->get();
         $postTags = PostTag::orderBy('created_at', 'DESC')->get();
+        $comments = Comment::where('post_id', '=', $post->id )-> orderBy('created_at', 'DESC')->get();
+
         $tags = Tag::orderBy('created_at', 'DESC')->get();
         $date = Carbon::parse($post->created_at);
         return view('home.post', [
@@ -25,7 +28,10 @@ class PostController extends Controller
             'postTags' => $postTags,
             'tags' => $tags,
             'post' => $post,
+            'comments'=>$comments,
             'date'=>$date
         ]);
     }
+
+
 }

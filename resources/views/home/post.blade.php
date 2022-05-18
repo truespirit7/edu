@@ -124,43 +124,46 @@
 
                                 <!-- Comment Area Start -->
                                 <div class="comment_area clearfix">
-                                    <h4 class="headline">12 Comments</h4>
+                                    <h4 class="headline">Комментариев: {{count($comments)}}</h4>
                                     <ol>
-                                        <!-- Single Comment Area -->
-                                        <li class="single_comment_area">
-                                            <div class="comment-wrapper d-flex">
-                                                <!-- Comment Meta -->
-                                                <div class="comment-author">
-                                                    <img src="img/blog-img/9.jpg" alt="">
-                                                </div>
+
                                                 <!-- Comment Content -->
+                                                @foreach($comments as $comment)
+                                                    <!-- Single Comment Area -->
+                                                        <li class="single_comment_area">
+                                                            <div class="comment-wrapper d-flex">
+                                                                <!-- Comment Meta -->
+                                                                <div class="comment-author">
+                                                                    <img src="img/blog-img/9.jpg" alt="">
+                                                                </div>
                                                 <div class="comment-content">
-                                                    <span class="comment-date">MAY 10, 2018</span>
-                                                    <h5>Calantha Flower</h5>
-                                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi</p>
+                                                    <span class="comment-date">{{$comment->created_at}}MAY 10, 2018</span>
+                                                    <h5>{{$comment->name}}</h5>
+                                                    <p>{{$comment->message}}</p>
                                                     <a href="#">Like</a>
                                                     <a class="active" href="#">Reply</a>
                                                 </div>
+                                                @endforeach
                                             </div>
-                                            <ol class="children">
-                                                <li class="single_comment_area">
-                                                    <div class="comment-wrapper d-flex">
-                                                        <!-- Comment Meta -->
-                                                        <div class="comment-author">
-                                                            <img src="img/blog-img/10.jpg" alt="">
-                                                        </div>
-                                                        <!-- Comment Content -->
-                                                        <div class="comment-content">
-                                                            <span class="comment-date">MAY 18, 2018</span>
-                                                            <h5>Dianna Agron</h5>
-                                                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi</p>
-                                                            <a href="#">Like</a>
-                                                            <a class="active" href="#">Reply</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ol>
-                                        </li>
+{{--                                            <ol class="children">--}}
+{{--                                                <li class="single_comment_area">--}}
+{{--                                                    <div class="comment-wrapper d-flex">--}}
+{{--                                                        <!-- Comment Meta -->--}}
+{{--                                                        <div class="comment-author">--}}
+{{--                                                            <img src="img/blog-img/10.jpg" alt="">--}}
+{{--                                                        </div>--}}
+{{--                                                        <!-- Comment Content -->--}}
+{{--                                                        <div class="comment-content">--}}
+{{--                                                            <span class="comment-date">MAY 18, 2018</span>--}}
+{{--                                                            <h5>Dianna Agron</h5>--}}
+{{--                                                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi</p>--}}
+{{--                                                            <a href="#">Like</a>--}}
+{{--                                                            <a class="active" href="#">Reply</a>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </li>--}}
+{{--                                            </ol>--}}
+{{--                                        </li>--}}
                                         <li class="single_comment_area">
                                             <div class="comment-wrapper d-flex">
                                                 <!-- Comment Meta -->
@@ -183,28 +186,29 @@
                                 <!-- Leave A Comment -->
                                 <div class="leave-comment-area clearfix">
                                     <div class="comment-form">
-                                        <h4 class="headline">Leave A Comment</h4>
+                                        <h4 class="headline">Оставить комментарий</h4>
 
                                         <!-- Comment Form -->
-                                        <form action="#" method="post">
+                                        <form method="post" action="{{route('article.comment.store', $post->id)}}" >
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" id="contact-name" placeholder="Name">
+                                                        <input type="text" name="name" class="form-control" id="contact-name" placeholder="Имя">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
+{{--                                                <div class="col-12 col-md-6">--}}
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <input type="email" class="form-control" id="contact-email" placeholder="Email">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+                                                <div class="col-12">
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" id="contact-email" placeholder="Email">
+                                                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Ваш комментарий"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Comment"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <button type="submit" class="btn nikki-btn">Send Message</button>
+                                                    <button type="submit" class="btn nikki-btn">Отправить</button>
                                                 </div>
                                             </div>
                                         </form>

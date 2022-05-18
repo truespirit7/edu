@@ -30,8 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'google' => [
-        'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://35.157.220.29/googleauth/callback',
+        'client_id' => env('836471342700-uvfa2s3lm457ucc9c2eid01ksqr56sjv.apps.googleusercontent.com'),
+        'client_secret' => env('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'),
+            'redirect' => 'http://ancient-culture.ru/googleauth/callback',
     ],
 ];

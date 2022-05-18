@@ -62,6 +62,11 @@
                                     </td>
 
                                     <td class="project-actions text-right">
+                                        <a class="btn btn-info btn-sm" href="{{ route('test.create', $post['id']) }}">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Добавить тест
+                                        </a>
                                         <a class="btn btn-info btn-sm" href="{{ route('post.edit', $post['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
