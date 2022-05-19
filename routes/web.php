@@ -28,8 +28,13 @@ Route::get('/googleauth/callback', [App\Http\Controllers\Auth\LoginController::c
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
 Route::get('/category/{category}', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('postsByCategory');
 Route::get('/tag/{tag}', [App\Http\Controllers\Home\IndexController::class, 'indexByTag'])->name('postsByTag');
-
+//Route::get(
+//'/chatbot',function () { View('')
+//    //
+//})->name('chatbot');
 Route::get('/article/{post}', [App\Http\Controllers\Home\Post\PostController::class, 'showPost'])->name('article');
+Route::get('/chatbot/', [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'openChatbot'])->name('chatbot');
+
 Route::  group([ 'namespace' => 'Comment', 'prefix' => '/{post}/comments'], function () {
         Route::post('/', [App\Http\Controllers\Home\Post\CommentController::class, 'storeComment'])->name('article.comment.store');
 });

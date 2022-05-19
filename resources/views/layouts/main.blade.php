@@ -15,6 +15,7 @@
     <link rel="icon" href="{{ asset('img/core-img/favicon.ico')}}">
 
     <!-- Core Stylesheet -->
+
     <link rel="stylesheet" href="{{ asset('style.css')}}">
 
 </head>
@@ -78,7 +79,7 @@
                                         </div>
                                     </li>
                                     <li><a href="about-us.html">О проекте</a></li>
-                                    <li><a href="contact.html">"Нейронный Сократ"</a></li>
+                                    <li><a href="{{route('chatbot')}}">"Нейронный Сократ"</a></li>
 
                                 </ul>
 
