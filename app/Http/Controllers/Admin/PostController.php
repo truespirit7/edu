@@ -56,7 +56,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request);
         $validation = $request->validate(['title'=>$this->rulesTitle, 'content'=>$this->rulesContent, 'excerpt'=>$this-> rulesExcerpt, 'preview_img'=>$this->rulesImage]);
         $newPost = new Post();
         $newPost->title= $request->title;
@@ -73,8 +72,6 @@ class PostController extends Controller
         $newPost -> tags()->attach($tag_ids);
         $newPost->save();
 
-//        $data= $request->all();
-//        dd($data);
          return redirect()->back()->withSuccess('Статья была успешно добавлена!');
     }
 

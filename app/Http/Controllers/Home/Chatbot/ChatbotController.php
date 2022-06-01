@@ -16,6 +16,7 @@ class ChatbotController extends Controller
 
     public function openChatbot()
     {
+        \App\Events\PublicChat::dispatch("get my message?");
         $categories = Category::orderBy('created_at', 'DESC')->get();
         $postTags = PostTag::orderBy('created_at', 'DESC')->get();
         $tags = Tag::orderBy('created_at', 'DESC')->get();
