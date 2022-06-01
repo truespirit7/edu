@@ -10,6 +10,7 @@ createApp(App).mount('#root')
 //  * building robust, powerful web applications using Vue and Laravel.
 //  */
 //
+
 require('./bootstrap');
 // import Vue from 'vue'
 // // window.Vue = require('vue').default;

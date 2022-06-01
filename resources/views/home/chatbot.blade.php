@@ -13,7 +13,7 @@
 @endsection
 
 {{--@extends('layouts.main')--}}
-
+git remote set-url origin https://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@github.com/truespirit7/edu (https://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@github.com/truespirit7)
 {{--@section('title', 'Название поста')--}}
 
 {{--@section('content')--}}
