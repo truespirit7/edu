@@ -25,6 +25,7 @@ class PublicChat implements ShouldBroadcast
         $this->message = $message;
     }
 
+
     /**
      * Get the channels the event should broadcast on.
      *
@@ -34,4 +35,8 @@ class PublicChat implements ShouldBroadcast
     {
         return new Channel('chat');
     }
+    public function broadcastAs(){
+        return 'message';
+    }
+
 }
