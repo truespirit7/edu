@@ -119,7 +119,7 @@
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
-    <div id="root">
+    <div>
     @yield('content')
     </div>
     <!-- ##### Footer Area Start ##### -->
@@ -152,7 +152,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- ##### Footer Area Start ##### -->
-    <script src="{{ asset('js/app.js') }}" ></script>
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
