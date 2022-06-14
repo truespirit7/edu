@@ -13,7 +13,7 @@ class IndexController extends Controller
 {
 public function index($categoryId = 0 )
 {
-    $tags = Tag::orderBy('created_at', 'DESC')->get();
+//    $tags = Tag::orderBy('created_at', 'DESC')->get();
     $categories = Category::orderBy('created_at', 'DESC')->get();
 
     $posts = Post::latest();
