@@ -66,7 +66,7 @@ class ChatbotController extends Controller
             "nrs"=> 1,
             "seed"=> 42
         ];
-        $url = 'http://localhost:8000';
+        $url = 'https://6f39-109-174-114-196.eu.ngrok.io';
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
