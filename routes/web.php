@@ -31,6 +31,7 @@ Route::get('/tag/{tag}', [App\Http\Controllers\Home\IndexController::class, 'ind
 
 Route::get('/article/{post}', [App\Http\Controllers\Home\Post\PostController::class, 'showPost'])->name('article');
 Route::get('/chatbot/', [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'openChatbot'])->name('chatbot');
+//Route::post('/chatbot/messages', [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'sendMessage'])->name('send-message');
 Route::post('/chatbot/messages', [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'sendMessage'])->name('send-message');
 Route::get('/chatbot/messages',  [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'fetchMessages'])->name('fetch-messages');
 
