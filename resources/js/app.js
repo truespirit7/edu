@@ -41,8 +41,7 @@ const app = createApp({
         },
 
         addMessage(message) {
-            this.messages.push(message);
-
+            // this.messages.push(message);
             axios.post('/chatbot/messages', message).then(response => {
                 console.log(response.data);
             });

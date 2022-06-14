@@ -22852,7 +22852,7 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_2__.createApp)({
       });
     },
     addMessage: function addMessage(message) {
-      this.messages.push(message);
+      // this.messages.push(message);
       axios.post('/chatbot/messages', message).then(function (response) {
         console.log(response.data);
       });
