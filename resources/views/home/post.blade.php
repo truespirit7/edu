@@ -37,8 +37,8 @@
                                 <h2 class="post-title">{{$post->title}}</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <a href="#"><span>by</span> Colorlib</a>
-                                    <a href="#">03 <span>Comments</span></a>
+{{--                                    <a href="#"><span>by</span> Colorlib</a>--}}
+                                    <a href="#"><span>Комментариев:</span> {{count($comments)}} </a>
                                 </div>
                             </div>
 
@@ -75,49 +75,47 @@
                                         @endforeach
                                     </ol>
                                 </div>
+                                @foreach($tests as $test)
+
+                                <div class="single-widget-area mb-30">
+                                    <!-- Title -->
+                                    <div class="widget-title">
+                                        <a href="@if ($test['post_id'] == $post['id']) {{ route('test', $test) }} @endif" class="post-title">
+                                        <h6>Пройти тест:""</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                @endforeach
 
                                 <!-- Related Post Area -->
                                 <div class="related-posts clearfix">
                                     <!-- Headline -->
-                                    <h4 class="headline">related posts</h4>
+                                    <h4 class="headline">Рекомендуемые статьи</h4>
 
                                     <div class="row">
-
+{{--                                    @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{   }} @endif  @endforeach--}}
                                         <!-- Single Blog Post -->
-                                        <div class="col-12 col-lg-6">
+                                            @foreach ($postsByCategory as $post)
+                                            <div class="col-12 col-lg-6">
                                             <div class="single-blog-post mb-50">
                                                 <!-- Thumbnail -->
                                                 <div class="post-thumbnail">
-                                                    <a href="#"><img src="img/blog-img/1.jpg" alt=""></a>
+                                                    <a href="{{ route('article', $post)}}"><img src="{{  asset('storage/' . $post['preview_img']) }}" alt=""></a>
                                                 </div>
                                                 <!-- Content -->
                                                 <div class="post-content">
-                                                    <p class="post-date">MAY 17, 2018 / lifestyle</p>
-                                                    <a href="#" class="post-title">
-                                                        <h4>A Closer Look At Our Front Porch Items From Lowe’s</h4>
+                                                    <p class="post-date">{{substr($post['created_at'], -20, 10)}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach </p>
+                                                    <a href="{{ route('article', $post)}}" class="post-title">
+                                                        <h4>{{$post->title}}</h4>
                                                     </a>
-                                                    <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+                                                    <p class="post-excerpt">{{$post['excerpt']}}</p>
                                                 </div>
                                             </div>
+                                            @endforeach
                                         </div>
 
                                         <!-- Single Blog Post -->
-                                        <div class="col-12 col-lg-6">
-                                            <div class="single-blog-post mb-50">
-                                                <!-- Thumbnail -->
-                                                <div class="post-thumbnail">
-                                                    <a href="#"><img src="img/blog-img/4.jpg" alt=""></a>
-                                                </div>
-                                                <!-- Content -->
-                                                <div class="post-content">
-                                                    <p class="post-date">MAY 25, 2018 / Fashion</p>
-                                                    <a href="#" class="post-title">
-                                                        <h4>5 Things to Know About Dating a Bisexual</h4>
-                                                    </a>
-                                                    <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+
 
                                     </div>
                                 </div>

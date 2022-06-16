@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Test;
+use App\Models\TestAnswer;
+use App\Models\TestQuestion;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -40,73 +42,72 @@ class TestController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Test  $test
 
      */
-    public function create(Post $post)
+    public function create()
     {
         $posts = Post::orderBy('created_at', 'DESC')->get();
-        return(view('admin.test.create', ['post' => $post]));
+        return(view('admin.test.create', ['posts' => $posts]));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      *
+
+//     * @param  \App\Models\Test  $test
+//     * @param  \App\Models\TestQuestion  $question
+//     * @param  \App\Models\TestAnswer  $answer
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+
+
      */
-    public function store(Request $request, $post)
+    public function store(Request $request)
     {
-       // dd($request);
 //        $validation = $request->validate(['title'=>$this->rulesTitle, 'content'=>$this->rulesContent, 'excerpt'=>$this-> rulesExcerpt, 'preview_img'=>$this->rulesImage]);
-//        $newPost = new Post();
-//        $newPost->title= $request->title;
-//        $newPost->content= $request->content;
-//        $newPost->excerpt= $request->excerpt;
-//        $previewImg = $request->preview_img;
-//        $previewImgPath = Storage::put('/public/images', $previewImg);
-//        $previewImgPath = substr($previewImgPath, 6);
-//        $newPost->preview_img = $previewImgPath;
-//
-//        $newPost -> category_id = $request->cat_id;
-//        $tag_ids = $request->tag_ids;
-//        $newPost->save();
-//        $newPost -> tags()->attach($tag_ids);
-//        $newPost->save();
-//
-////        $data= $request->all();
-////        dd($data);
-//         return redirect()->back()->withSuccess('Статья была успешно добавлена!');
-
-
-//        $validation = $request->validate(['title'=>$this->rulesTag]);
-        dd($post);
         $newTest = new Test();
         $newTest->title= $request->title;
-        $newTest->post_id= $post;
-
+        $newTest->post_id = $request->post_id;
         $newTest->save();
+        $newQuestion = new TestQuestion();
+        $newQuestion->test_id= $newTest->id;
+        $newQuestion->question_text= $request->question_text1;
+        $newQuestion->question_explanation = $request->explanation1;
+        $newQuestion->save();
+        $newAnswer = new TestAnswer();
+        $newAnswer->question_id = $newQuestion->id;
+        $newAnswer->answer_text = $request->answer1_question1;
+        $newAnswer->correct = 1;
+        $newAnswer->save();
+        $newAnswer = new TestAnswer();
+        $newAnswer->question_id = $newQuestion->id;
+        $newAnswer->answer_text = $request->answer2_question1;
+        $newAnswer->correct = 0;
+        $newAnswer->save();
 
-        return redirect()->back()->with('message','Тест был успешно добавлен!');
+
+        return redirect()->back()->withSuccess('Статья была успешно добавлена!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Test  $test)
     {
         $tags = Tag::orderBy('created_at', 'DESC')->get();
         $categories = Category::orderBy('created_at', 'DESC')->get();
-        $date = Carbon::parse($post->created_at);
+        $questions = TestQuestion::where('test_id','=', $test->id)->get();
+//        $answers = TestAnswer::orderBy('question_id', '=', $test->id')->get();
+
         return view('home.post', [
             'categories' => $categories,
             'tags' => $tags,
-            'post' => $post,
-            'date'=>$date
+            'test' => $test,
         ]);
     }
 

@@ -64,10 +64,7 @@
             <div class="row" id="root" >
                 <div class="panel panel-default">
                     <div class="panel-heading">Chats</div>
-
-                    <div class="panel-body">
                         <chat-messages :messages="messages"></chat-messages>
-                    </div>
                     <div class="panel-footer">
                         <chat-form
                             v-on:messagesent="addMessage"

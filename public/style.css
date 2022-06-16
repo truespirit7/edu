@@ -1672,6 +1672,11 @@ blockquote {
     background-color: #555;
 }
 
+.post-thumbnail > a > img {
+    width: 300px !important;
+    max-width:      300px !important;
+
+}
 
 /* ======= The End ======= */
 

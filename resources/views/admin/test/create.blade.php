@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить тест {{ $post['title'] }}</h1>
+                    <h1 class="m-0">Добавить тест</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             @if ($errors->any())
@@ -35,20 +35,41 @@
              <div class="col-lg-12">
                  <div class="card card-primary">
                      <!-- form start -->
-                     <form action="{{ route('test.store', $post['id']) }}" method="POST" enctype="multipart/form-data" >
+                     <form action="{{ route('test.store') }}" method="POST" enctype="multipart/form-data" >
                          @csrf
-                         @method('PUT')
-                         <div class="form-group">
-                             <label for="exampleInputEmail1">Название</label>
-                             <input type="text" value="{{ $post['title'] }}" name="title" class="form-control"
-                                    id="exampleInputEmail1" placeholder="Введите название статьи" required>
-                         </div>
                          <div class="card-body">
                              <div class="form-group">
                                  <label for="exampleInputEmail1">Название</label>
                                  <input type="text" name="title" class="form-control" id="exampleInputEmail1"
                                         placeholder="Введите название теста" required>
                              </div>
+                             <div class="form-group">
+                                 <label>Выберите пост</label>
+                                 <select name="post_id" class="form-control" required>
+                                     @foreach ($posts as $post)
+                                         <option value="{{ $post['id'] }}">{{ $post['title'] }}</option>
+                                     @endforeach
+                                 </select>
+                             </div>
+                             <div class="form-group" required>
+                                 <label>Вопрос 1</label>
+                                 <textarea id="text" name="question_text1" class="editor" cols="30" rows="15"></textarea>
+                             </div>
+                             <label>Правильный ответ</label>
+                             <div class="form-group" required>
+                                 <textarea id="text" name="answer1_question1" cols="30" rows="1" maxlength="150"></textarea>
+
+                             </div>
+                             <label>Неправильный ответ</label>
+                             <div class="form-group" required>
+                                 <textarea id="text" name="answer2_question1" cols="30" rows="1" maxlength="150"></textarea>
+
+                             </div>
+                             <div class="form-group" required>
+                                 <label>Объяснение</label>
+                                 <textarea id="text" name="explanation1" class="editor" cols="30" rows="15"></textarea>
+                             </div>
+
                          </div>
                          <!-- /.card-body -->
 

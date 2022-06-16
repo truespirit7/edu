@@ -26,7 +26,7 @@
                 <!-- Post Content -->
                 <div class="slide-post-content h-100 d-flex align-items-center">
                     <div class="slide-post-text">
-                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">11 января, 2022 / Древний Рим</p>
+                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">{{substr($post['created_at'], -20, 10)}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach</p>
                         <a href="{{ route('article', $post)}}" class="post-title" data-animation="fadeIn" data-delay="300ms">
                             <h2>{{$post->title}}</h2>
                         </a>
@@ -38,45 +38,45 @@
                 </div>
             </div>
             @endforeach
-        <!-- Single Hero Post -->
-            <div class="single-hero-post d-flex flex-wrap">
-                <!-- Post Thumbnail -->
-                <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url(img/blog-img/14.jpg);"></div>
-                <!-- Post Content -->
-                <div class="slide-post-content h-100 d-flex align-items-center">
-                    <div class="slide-post-text">
-                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">MAY 01, 2018 / lifestyle</p>
-                        <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
-                            <h2>A Closer Look At Our Front Porch Items From Lowe’s</h2>
-                        </a>
-                        <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a>
-                    </div>
-                    <!-- Page Count -->
-                    <div class="page-count"></div>
-                </div>
-            </div>
+{{--        <!-- Single Hero Post -->--}}
+{{--            <div class="single-hero-post d-flex flex-wrap">--}}
+{{--                <!-- Post Thumbnail -->--}}
+{{--                <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url(img/blog-img/14.jpg);"></div>--}}
+{{--                <!-- Post Content -->--}}
+{{--                <div class="slide-post-content h-100 d-flex align-items-center">--}}
+{{--                    <div class="slide-post-text">--}}
+{{--                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">MAY 01, 2018 / lifestyle</p>--}}
+{{--                        <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">--}}
+{{--                            <h2>A Closer Look At Our Front Porch Items From Lowe’s</h2>--}}
+{{--                        </a>--}}
+{{--                        <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>--}}
+{{--                        <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a>--}}
+{{--                    </div>--}}
+{{--                    <!-- Page Count -->--}}
+{{--                    <div class="page-count"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <!-- Single Hero Post -->
-            <div class="single-hero-post d-flex flex-wrap">
-                <!-- Post Thumbnail -->
-                <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url(img/blog-img/15.jpg);"></div>
-                <!-- Post Content -->
-                <div class="slide-post-content h-100 d-flex align-items-center">
-                    <div class="slide-post-text">
-                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">MAY 01, 2018 / lifestyle</p>
-                        <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
-                            <h2>Answering Your Most Frequent International Transportation Questions</h2>
-                        </a>
-                        <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a>
-                    </div>
-                    <!-- Page Count -->
-                    <div class="page-count"></div>
-                </div>
-            </div>
+{{--            <!-- Single Hero Post -->--}}
+{{--            <div class="single-hero-post d-flex flex-wrap">--}}
+{{--                <!-- Post Thumbnail -->--}}
+{{--                <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url(img/blog-img/15.jpg);"></div>--}}
+{{--                <!-- Post Content -->--}}
+{{--                <div class="slide-post-content h-100 d-flex align-items-center">--}}
+{{--                    <div class="slide-post-text">--}}
+{{--                        <p class="post-date" data-animation="fadeIn" data-delay="100ms">MAY 01, 2018 / lifestyle</p>--}}
+{{--                        <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">--}}
+{{--                            <h2>Answering Your Most Frequent International Transportation Questions</h2>--}}
+{{--                        </a>--}}
+{{--                        <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>--}}
+{{--                        <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a>--}}
+{{--                    </div>--}}
+{{--                    <!-- Page Count -->--}}
+{{--                    <div class="page-count"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-        </div>
+{{--        </div>--}}
     </section>
     <!-- ##### Hero Area End ##### -->
 
@@ -136,7 +136,7 @@
 
                                             <p class="post-date">{{substr($post['created_at'], -20, 10)}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach </p>
 
-                                        <a href="{{ route('article', $post)}}" class="post-title">
+                                        <a href="{{ route('test', $post)}}" class="post-title">
 {{--                                            {{dd($post)}}--}}
                                             <h4>{{$post->title}}</h4>
                                         </a>
@@ -327,7 +327,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!-- ##### Blog Content Area End ##### -->
     @endsection

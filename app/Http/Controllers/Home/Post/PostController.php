@@ -23,12 +23,15 @@ class PostController extends Controller
 
         $tags = Tag::orderBy('created_at', 'DESC')->get();
         $date = Carbon::parse($post->created_at);
+        $postsByCategory = Post::where('category_id', '=', $post['category_id']);
+
         return view('home.post', [
             'categories' => $categories,
             'postTags' => $postTags,
             'tags' => $tags,
             'post' => $post,
             'comments'=>$comments,
+            'postsByCategory'=>$postsByCategory->paginate(2),
             'date'=>$date
         ]);
     }
