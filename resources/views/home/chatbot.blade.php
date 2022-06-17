@@ -24,10 +24,10 @@
             height: 350px;
         }
 
-        ::-webkit-scrollbar-track {
+        /*::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
             background-color: #F5F5F5;
-        }
+        }*/
 
         ::-webkit-scrollbar {
             width: 12px;
@@ -37,6 +37,43 @@
         ::-webkit-scrollbar-thumb {
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
             background-color: #555;
+        }
+
+        .chat-root {
+            height: calc(100vh - 60px - 140px);
+            margin-top: 50px;
+        }
+
+        .chat-title {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .chat-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        #root {
+            min-width: 350px;
+            max-width: 600px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px;
+        }
+
+        #btn-input, #btn-chat {
+            height: 40px;
+        }
+
+        #btn-input {
+            border-radius: 0 0 0 10px;
+        }
+
+        #btn-chat {
+            border-radius: 0 0 10px 0;
         }
     </style>
     {{--    <div class="container">--}}
@@ -58,13 +95,12 @@
     {{--            </div>--}}
     {{--        </div>--}}
     {{--    </div>--}}
-    <div  class="flex-center position-ref full-height">
-        <h1>Нейронный Сократ</h1>
-        <div class="container">
+    <div  class="flex-center position-ref full-height chat-root">
+        <div class="chat-title"><h1>Нейронный Сократ</h1></div>
+        <div class=" chat-container">
             <div class="row" id="root" >
                 <div class="panel panel-default">
-                    <div class="panel-heading">Chats</div>
-                        <chat-messages :messages="messages"></chat-messages>
+                    <chat-messages :messages="messages"></chat-messages>
                     <div class="panel-footer">
                         <chat-form
                             v-on:messagesent="addMessage"

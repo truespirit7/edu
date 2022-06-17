@@ -80,9 +80,10 @@
                                 <div class="single-widget-area mb-30">
                                     <!-- Title -->
                                     <div class="widget-title">
-                                        <a href="@if ($test['post_id'] == $post['id']) {{ route('test', $test) }} @endif" class="post-title">
-                                        <h6>Пройти тест:""</h6>
+                                        <a href="@if ($test['post_id'] == $post['id']) {{ route('test', $test) }} " class="post-title">
+                                        <h6>Пройти тест:"{{$test['title']}}"</h6>
                                         </a>
+                                        @endif
                                     </div>
                                 </div>
                                 @endforeach
@@ -111,9 +112,8 @@
                                                     <p class="post-excerpt">{{$post['excerpt']}}</p>
                                                 </div>
                                             </div>
-                                            @endforeach
                                         </div>
-
+                                        @endforeach
                                         <!-- Single Blog Post -->
 
 

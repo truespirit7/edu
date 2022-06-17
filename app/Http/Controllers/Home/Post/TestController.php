@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\PostTag;
 use App\Models\Tag;
+use App\Models\TestQuestion;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -22,7 +23,7 @@ class TestController extends Controller
      //    dd($post);
         $categories = Category::orderBy('created_at', 'DESC')->get();
         $postTags = PostTag::orderBy('created_at', 'DESC')->get();
-//        $comments = Comment::where('post_id', '=', $post->id )-> orderBy('created_at', 'DESC')->get();
+        $questions = TestQuestion::where('test_id','=', $test->id)->get();
 
         $tags = Tag::orderBy('created_at', 'DESC')->get();
 //        $date = Carbon::parse($post->created_at);
@@ -33,6 +34,7 @@ class TestController extends Controller
             'postTags' => $postTags,
             'tags' => $tags,
             'test' => $test,
+            'questions'=>$questions
 //            'comments'=>$comments,
 //            'postsByCategory'=>$postsByCategory->paginate(2),
 //            'date'=>$date

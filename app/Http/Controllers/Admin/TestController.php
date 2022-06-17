@@ -71,21 +71,47 @@ class TestController extends Controller
         $newTest->title= $request->title;
         $newTest->post_id = $request->post_id;
         $newTest->save();
+
         $newQuestion = new TestQuestion();
         $newQuestion->test_id= $newTest->id;
         $newQuestion->question_text= $request->question_text1;
         $newQuestion->question_explanation = $request->explanation1;
+        $newQuestion->answer_true = $request->answer1_question1;
+        $newQuestion->answer_false = $request->answer2_question1;
         $newQuestion->save();
-        $newAnswer = new TestAnswer();
-        $newAnswer->question_id = $newQuestion->id;
-        $newAnswer->answer_text = $request->answer1_question1;
-        $newAnswer->correct = 1;
-        $newAnswer->save();
-        $newAnswer = new TestAnswer();
-        $newAnswer->question_id = $newQuestion->id;
-        $newAnswer->answer_text = $request->answer2_question1;
-        $newAnswer->correct = 0;
-        $newAnswer->save();
+
+        $newQuestion = new TestQuestion();
+        $newQuestion->test_id= $newTest->id;
+        $newQuestion->question_text= $request->question_text2;
+        $newQuestion->question_explanation = $request->explanation2;
+        $newQuestion->answer_true = $request->answer1_question2;
+        $newQuestion->answer_false = $request->answer2_question2;
+        $newQuestion->save();
+
+//        $newQuestion = new TestQuestion();
+//        $newQuestion->test_id= $newTest->id;
+//        $newQuestion->question_text= $request->question_text1;
+//        $newQuestion->question_explanation = $request->explanation1;
+//        $newQuestion->answer_true = $request->answer1_question1;
+//        $newQuestion->answer_false = $request->answer2_question1;
+//        $newQuestion->save();
+//
+//        $newQuestion = new TestQuestion();
+//        $newQuestion->test_id= $newTest->id;
+//        $newQuestion->question_text= $request->question_text1;
+//        $newQuestion->question_explanation = $request->explanation1;
+//        $newQuestion->answer_true = $request->answer1_question1;
+//        $newQuestion->answer_false = $request->answer2_question1;
+//        $newQuestion->save();
+//
+//        $newQuestion = new TestQuestion();
+//        $newQuestion->test_id= $newTest->id;
+//        $newQuestion->question_text= $request->question_text5;
+//        $newQuestion->question_explanation = $request->explanation5;
+//        $newQuestion->answer_true = $request->answer1_question5;
+//        $newQuestion->answer_false = $request->answer2_question5;
+//        $newQuestion->save();
+
 
 
         return redirect()->back()->withSuccess('Статья была успешно добавлена!');
@@ -101,8 +127,6 @@ class TestController extends Controller
     {
         $tags = Tag::orderBy('created_at', 'DESC')->get();
         $categories = Category::orderBy('created_at', 'DESC')->get();
-        $questions = TestQuestion::where('test_id','=', $test->id)->get();
-//        $answers = TestAnswer::orderBy('question_id', '=', $test->id')->get();
 
         return view('home.post', [
             'categories' => $categories,

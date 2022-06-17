@@ -14,11 +14,18 @@ class CreateAdminSeeder extends Seeder
      *
      * @return void
      */
+
+
     public function run()
     {
         $user = User::create([
             'name'=>'admin',
             'email'=>'myshic8@gmail.com',
+            'password'=>Hash::make('1234567890'),
+        ]);
+        $socrat = User::create([
+            'name'=>'Сократ',
+            'email'=>'andredan2000@yandex.ru',
             'password'=>Hash::make('123456789'),
         ]);
         Role::create([
@@ -31,5 +38,6 @@ class CreateAdminSeeder extends Seeder
             'name'=>'user'
         ]);
         $user->assignRole('admin');
+        $socrat->assignRole('admin');
     }
 }

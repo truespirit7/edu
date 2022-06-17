@@ -6,7 +6,7 @@
         <li class="left clearfix" v-for="message in messages">
             <div class="chat-body clearfix">
                 <div class="header">
-                    <strong class="primary-font">
+                    <strong :class="`primary-font ${message.user.id === 2 ? 'bot' : ''}`">
                         {{ message.user.name }}
                     </strong>
                 </div>
@@ -37,7 +37,9 @@ let messagesBlockElement = null;
 
 const scrollBottom = () => {
     if (!messagesBlockElement) return;
-    messagesBlockElement.scrollTop = messagesBlockElement.scrollHeight;
+    setTimeout(() => {
+        messagesBlockElement.scrollTop = messagesBlockElement.scrollHeight;
+    });
 };
 
 onMounted(() => {
@@ -45,7 +47,6 @@ onMounted(() => {
    setTimeout(() => {
        scrollBottom();
    }, 500);
-   // logContainer.scrollTop = logContainer.scrollHeight
 });
 
 watch(messagesCount, () => {
@@ -76,4 +77,10 @@ setInterval(() => {
     }
 };*/
 </script>
+
+<style>
+.bot {
+    color: orange;
+}
+</style>
 

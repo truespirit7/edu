@@ -34,7 +34,7 @@
 
                             <div class="text-center mb-50">
 {{--                                <p class="post-date">{{$date->translatedFormat('d F Y')}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach </p>--}}
-                                <h2 class="post-title">{{$test->title}}</h2>
+                                <h2 class="post-title">Тест: "{{$test->title}}"</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
                                     <a href="#"><span>by</span> Colorlib</a>
@@ -46,7 +46,24 @@
 
                             <!-- Post Text -->
                             <div class="post-text">
-                                <!-- Share -->
+{{--                            {!! $post->content !!}--}}
+
+                                @foreach ($questions as $question)
+                                    <h3 >Вопрос 1</h3>
+                                {!! $question->question_text !!}
+                                    <input type="radio" id="qwe"
+                                           name="contact" value="email">
+                                    <label for="contactChoice1">{{$question->answer_true}}</label>
+
+                                    <input type="radio" id="qwe"
+                                           name="contact" value="phone">
+                                    <label for="contactChoice2">{{$question->answer_false}}</label>
+
+{{--                                <input type="checkbox" name="answer" value="{{$question->answer_true}}" onclick="">--}}
+{{--                                <input type="checkbox" name="answer" value="{{$question->answer_false}}" onclick="">--}}
+
+                            @endforeach
+                            <!-- Share -->
                                 <div class="post-share">
                                     <span>Share</span>
                                     <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -55,7 +72,7 @@
                                     <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                     <a href="#" class="pin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
                                 </div>
-                                {!! $post->content !!}
+{{--                                {!! $post->content !!}--}}
                                 <!-- Post Tags & Share -->
 
 

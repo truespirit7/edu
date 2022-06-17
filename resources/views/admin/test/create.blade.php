@@ -70,7 +70,83 @@
                                  <textarea id="text" name="explanation1" class="editor" cols="30" rows="15"></textarea>
                              </div>
 
-                         </div>
+                             <div class="form-group" required>
+                                 <label>Вопрос 2</label>
+                                 <textarea id="text" name="question_text2" class="editor" cols="30" rows="15"></textarea>
+                             </div>
+                             <label>Правильный ответ</label>
+                             <div class="form-group" required>
+                                 <textarea id="text" name="answer1_question2" cols="30" rows="1" maxlength="150"></textarea>
+
+                             </div>
+                             <label>Неправильный ответ</label>
+                             <div class="form-group" required>
+                                 <textarea id="text" name="answer2_question2" cols="30" rows="1" maxlength="150"></textarea>
+
+                             </div>
+                             <div class="form-group" required>
+                                 <label>Объяснение</label>
+                                 <textarea id="text" name="explanation2" class="editor" cols="30" rows="15"></textarea>
+                             </div>
+
+{{--                             <div class="form-group" required>--}}
+{{--                                 <label>Вопрос 3</label>--}}
+{{--                                 <textarea id="text" name="question_text1" class="editor" cols="30" rows="15"></textarea>--}}
+{{--                             </div>--}}
+{{--                             <label>Правильный ответ</label>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <textarea id="text" name="answer3_question1" cols="30" rows="1" maxlength="150"></textarea>--}}
+
+{{--                             </div>--}}
+{{--                             <label>Неправильный ответ</label>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <textarea id="text" name="answer3_question1" cols="30" rows="1" maxlength="150"></textarea>--}}
+
+{{--                             </div>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <label>Объяснение</label>--}}
+{{--                                 <textarea id="text" name="explanation3" class="editor" cols="30" rows="15"></textarea>--}}
+{{--                             </div>--}}
+
+{{--                             <div class="form-group" required>--}}
+{{--                                 <label>Вопрос 1</label>--}}
+{{--                                 <textarea id="text" name="question_text4" class="editor" cols="30" rows="15"></textarea>--}}
+{{--                             </div>--}}
+{{--                             <label>Правильный ответ</label>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <textarea id="text" name="answer4_question1" cols="30" rows="1" maxlength="150"></textarea>--}}
+
+{{--                             </div>--}}
+{{--                             <label>Неправильный ответ</label>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <textarea id="text" name="answer4_question1" cols="30" rows="1" maxlength="150"></textarea>--}}
+
+{{--                             </div>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <label>Объяснение</label>--}}
+{{--                                 <textarea id="text" name="explanation4" class="editor" cols="30" rows="15"></textarea>--}}
+{{--                             </div>--}}
+
+{{--                             <div class="form-group" required>--}}
+{{--                                 <label>Вопрос 5</label>--}}
+{{--                                 <textarea id="text" name="question_text5" class="editor" cols="30" rows="15"></textarea>--}}
+{{--                             </div>--}}
+{{--                             <label>Правильный ответ</label>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <textarea id="text" name="answer5_question1" cols="30" rows="1" maxlength="150"></textarea>--}}
+
+{{--                             </div>--}}
+{{--                             <label>Неправильный ответ</label>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <textarea id="text" name="answer5_question1" cols="30" rows="1" maxlength="150"></textarea>--}}
+
+{{--                             </div>--}}
+{{--                             <div class="form-group" required>--}}
+{{--                                 <label>Объяснение</label>--}}
+{{--                                 <textarea id="text" name="explanation5" class="editor" cols="30" rows="15"></textarea>--}}
+{{--                             </div>--}}
+
+{{--                         </div>--}}
                          <!-- /.card-body -->
 
                          <div class="card-footer">

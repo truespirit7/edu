@@ -26,6 +26,8 @@ const app = createApp({
         this.fetchMessages();
         echo.channel('chat')
             .listen('MessageSent', (e) => {
+                if (e.user.id !== 2) return; // если обычный юзер, то игнорим
+
                 this.messages.push({
                     message: e.message.message,
                     user: e.user
@@ -41,7 +43,7 @@ const app = createApp({
         },
 
         addMessage(message) {
-            // this.messages.push(message);
+            this.messages.push(message);
             axios.post('/chatbot/messages', message).then(response => {
                 console.log(response.data);
             });

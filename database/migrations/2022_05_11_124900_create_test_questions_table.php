@@ -17,6 +17,8 @@ class CreateTestQuestionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('test_id');
             $table->text('question_text');
+            $table->text('answer_true');
+            $table->text('answer_false');
             $table->text('question_explanation');
         });
     }
