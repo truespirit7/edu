@@ -72,7 +72,17 @@
                                     <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                     <a href="#" class="pin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
                                 </div>
-{{--                                {!! $post->content !!}--}}
+
+                                <div class="single-widget-area mb-30">
+                                    <!-- Title -->
+                                    <div class="widget-title">
+                                        <a href=" {{ route('test-result', $test) }} " class="title">
+                                            <h6>Узнать результат теста</h6>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            {{--                                {!! $post->content !!}--}}
                                 <!-- Post Tags & Share -->
 
 
