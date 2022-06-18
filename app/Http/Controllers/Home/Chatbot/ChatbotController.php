@@ -66,6 +66,20 @@ class ChatbotController extends Controller
             "nrs"=> 1,
             "seed"=> 42
         ];
+//
+//        $data = (object) [
+//            "context" => $request->input('message'),
+//        'max_length' => 256,
+//        'no_repeat_ngram_size'=> 1,
+//        'do_sample'=> True,
+//        'top_k'=> 100,
+//        'top_p'=> 0.9,
+//        'temperature'=> 0.6,
+//        'num_return_sequences'=> 5,
+//        'device'=> 0,
+//        'is_always_use_length'=> True,
+//        'length_generate'=> '1'
+//    ];
         $url = 'http://10.8.0.5:8000/';
 
         $curl = curl_init();
@@ -82,6 +96,7 @@ class ChatbotController extends Controller
         $response = curl_exec ($curl);
         $err = curl_error($curl);  //if you need
         curl_close ($curl);
+
         $socrat = User::where('name', '=', 'Сократ')->get();
         $user = $socrat[0];
         $message = $user->messages()->create([
