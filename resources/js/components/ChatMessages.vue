@@ -4,6 +4,9 @@
     <div class="panel-body">
     <ul class="chat">
         <li class="left clearfix" v-for="message in messages">
+            <div class="avatar">
+                <img :src="message.user.id === 2 ? '/avatars/Socrates.jpg' : '/avatars/default-avatar.jpg'" />
+            </div>
             <div class="chat-body clearfix">
                 <div class="header">
                     <strong :class="`primary-font ${message.user.id === 2 ? 'bot' : ''}`">
@@ -81,6 +84,24 @@ setInterval(() => {
 <style>
 .bot {
     color: orange;
+}
+.avatar {
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+
+
+}
+
+.avatar > img {
+    /*border-radius: 80px;*/
+}
+
+.left.clearfix {
+    display: flex;
 }
 </style>
 

@@ -22858,14 +22858,22 @@ var _hoisted_3 = {
   "class": "left clearfix"
 };
 var _hoisted_4 = {
+  "class": "avatar"
+};
+var _hoisted_5 = ["src"];
+var _hoisted_6 = {
   "class": "chat-body clearfix"
 };
-var _hoisted_5 = {
+var _hoisted_7 = {
   "class": "header"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.messages, function (message) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: message.user.id === 2 ? '/avatars/Socrates.jpg' : '/avatars/default-avatar.jpg'
+    }, null, 8
+    /* PROPS */
+    , _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("primary-font ".concat(message.user.id === 2 ? 'bot' : ''))
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.user.name), 3
     /* TEXT, CLASS */
@@ -28054,7 +28062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bot {\n    color: orange;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bot {\n    color: orange;\n}\n.avatar {\n    height: 80px;\n    width: 80px;\n    border-radius: 80px;\n    margin-right: 20px;\n    margin-left: 10px;\n    margin-bottom: 5px;\n}\n.avatar > img {\n    /*border-radius: 80px;*/\n}\n.left.clearfix {\n    display: flex;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

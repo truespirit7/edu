@@ -75,6 +75,12 @@
         #btn-chat {
             border-radius: 0 0 10px 0;
         }
+        .panel-default{
+            width: 100%;
+        }
+        .chat li.left .chat-body {
+            margin-left: 0px !important;
+        }
     </style>
     {{--    <div class="container">--}}
     {{--        <div class="row">--}}
