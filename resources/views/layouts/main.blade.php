@@ -54,7 +54,7 @@
                                         <div class="megamenu">
                                             <ul class="single-mega  ">
                                                 @foreach ($tags as $tag)
-                                                    <li><a href="{{route('indexByTag', $tag)}}">- {{ $tag['title'] }}</a></li>
+                                                    <li><a href="{{route('postsByTag', $tag)}}">- {{ $tag['title'] }}</a></li>
                                                 @endforeach
 
 
