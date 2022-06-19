@@ -42,6 +42,8 @@ class TestController extends Controller
         ]);
     }
 public function showResult(Request $request, $test){
+    $tags = Tag::orderBy('created_at', 'DESC')->get();
+
     $questions = TestQuestion::where('test_id','=', $test)->get();
     $results = [];
     foreach ($questions as $question){
@@ -59,6 +61,8 @@ public function showResult(Request $request, $test){
 
     return view('home.test-result', [
         'categories' => $categories,
+        'tags' => $tags,
+
         'test'=>$post_test,
 //        'test' => $test,
         'questions'=>$questions,
