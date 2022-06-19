@@ -96,7 +96,7 @@ class ChatbotController extends Controller
                 "no_repeat_ngram_size": 3,
                 "top_k": 75,
                 "top_p": 0.9,
-                "temperature": 0.6,
+                "temperature": 0.9,
                 "num_return": 3,
                 "do_sample": true,
                 "use_gpu": false
