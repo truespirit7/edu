@@ -10,9 +10,9 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>
+{{--                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>--}}
+{{--                            <li class="breadcrumb-item"><a href="#">Blog</a></li>--}}
+{{--                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>--}}
                         </ol>
                     </nav>
                 </div>
@@ -55,9 +55,8 @@
                                     <input type="hidden" name="q" value="123">
 
                                     <div class="row justify-content-center">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="text-center mt-5">
-                                                <p>Вопрос {{count($questions)}}</p>
                                             </div>
                                             <div class="card mt-3">
                                                 <div class="card-header">
@@ -65,8 +64,8 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div>
-                                                        <input type="radio" name="answer_question_{{$question->id}}" value="{{$question->answer_true}}" >{!! $question->answer_true !!}
-                                                        <input type="radio" name="answer_question_{{$question->id}}" value="{{$question->answer_false}}" >  {!! $question->answer_false !!}
+                                                        <input type="radio" class="qwe" name="answer_question_{{$question->id}}" value="{{$question->answer_true}}" >{!! $question->answer_true !!}
+                                                        <input type="radio" class="ml-30 qwe " name="answer_question_{{$question->id}}" value="{{$question->answer_false}}" >  {!! $question->answer_false !!}
                                                     </div>
 
                                                 </div>
@@ -77,7 +76,7 @@
                                     </div>
                                 @endforeach
 
-                                    <button type="submit" class="btn btn-success">Получить результат</button>
+                                    <button type="submit" class="btn btn-success mt-50 ml-50">Узнать результат теста</button>
 
                                 </form>
 {{--                                    @endif--}}

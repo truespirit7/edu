@@ -53,8 +53,8 @@
                                     <li><a href="#">Курсы</a>
                                         <div class="megamenu">
                                             <ul class="single-mega  ">
-                                                @foreach ($categories as $category)
-                                                    <li><a href="#">- {{ $category['title'] }}</a></li>
+                                                @foreach ($tags as $tag)
+                                                    <li><a href="{{route('indexByTag', $tag)}}">- {{ $tag['title'] }}</a></li>
                                                 @endforeach
 
 
@@ -62,7 +62,9 @@
 
 
                                             </ul>
+                                        </div>
                                     </li>
+
                                     <li><a href="#">Категории</a>
                                         <div class="megamenu">
                                             <ul class="single-mega  ">
@@ -78,14 +80,14 @@
 
                                         </div>
                                     </li>
-                                    <li><a href="about-us.html">О проекте</a></li>
+                                    <li><a href="{{route('article', 5)}}">О проекте</a></li>
                                     <li><a href="{{route('chatbot')}}">"Нейронный Сократ"</a></li>
 
                                 </ul>
 
                                 <!-- Search Form -->
                                 <div class="search-form">
-                                    <form action="#" method="get">
+                                    <form action="" method="get">
                                         <input type="search" name="search" class="form-control" placeholder="Введите для поиска">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form>
@@ -131,10 +133,7 @@
                     <div class="footer-social-info d-flex align-items-center justify-content-between">
                         <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
                         <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                        <a href="#"><i class="fa fa-google-plus"></i><span>Google +</span></a>
-                        <a href="#"><i class="fa fa-linkedin"></i><span>linkedin</span></a>
                         <a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>
-                        <a href="#"><i class="fa fa-vimeo"></i><span>Vimeo</span></a>
                         <a href="#"><i class="fa fa-youtube"></i><span>Youtube</span></a>
                     </div>
                 </div>
@@ -143,9 +142,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="copywrite-text">
+                        <p>Свзаться с нами: andredan2000@yandex.ru</p>
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                             Antiqua &copy;<script>document.write(new Date().getFullYear());</script> </p>
                     </div>
                 </div>
             </div>

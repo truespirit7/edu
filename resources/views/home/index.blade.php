@@ -146,7 +146,6 @@
 
                             </div>
                             @endforeach
-                            {{ $posts -> links() }}
 
 
 
@@ -154,9 +153,11 @@
                     </div>
 
                     <!-- Pager -->
-                    <ol class="nikki-pager">
-                        <li><a href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Newer</a></li>
-                        <li><a href="#">Older <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                    <ol >
+                        {{ $posts -> links() }}
+
+{{--                        <li><a href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Newer</a></li>--}}
+{{--                        <li><a href="#">Older <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>--}}
                     </ol>
                 </div>
 

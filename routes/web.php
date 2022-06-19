@@ -28,6 +28,8 @@ Route::get('/googleauth/callback', [App\Http\Controllers\Auth\LoginController::c
 Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('index');
 Route::get('/category/{category}', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('postsByCategory');
 Route::get('/tag/{tag}', [App\Http\Controllers\Home\IndexController::class, 'indexByTag'])->name('postsByTag');
+Route::get('/article/{post}', [App\Http\Controllers\Home\Post\PostController::class, 'showPost'])->name('article');
+//Route::get('/?search=', [App\Http\Controllers\Home\IndexController::class, 'indexBySearch'])->name('postsBySearch');
 
 Route::get('/article/{post}', [App\Http\Controllers\Home\Post\PostController::class, 'showPost'])->name('article');
 Route::get('/article/test/{test}', [App\Http\Controllers\Home\Post\TestController::class, 'showTest'] )->name('test');

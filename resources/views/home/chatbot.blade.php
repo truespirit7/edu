@@ -21,7 +21,7 @@
 
         .panel-body {
             overflow-y: scroll;
-            height: 350px;
+            height: 400px;
         }
 
         /*::-webkit-scrollbar-track {
@@ -41,7 +41,7 @@
 
         .chat-root {
             height: calc(100vh - 60px - 140px);
-            margin-top: 50px;
+            margin-top: 30px;
         }
 
         .chat-title {
@@ -58,7 +58,7 @@
         }
 
         #root {
-            min-width: 350px;
+            min-width: 600px;
             max-width: 600px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             border-radius: 10px;
@@ -102,7 +102,7 @@
     {{--        </div>--}}
     {{--    </div>--}}
     <div  class="flex-center position-ref full-height chat-root">
-        <div class="chat-title"><h1>Нейронный Сократ</h1></div>
+        <div class="chat-title font-italic"><h1>Нейронный Сократ</h1></div>
         <div class=" chat-container">
             <div class="row" id="root" >
                 <div class="panel panel-default">
@@ -112,8 +112,11 @@
                             v-on:messagesent="addMessage"
                             :user="{{ Auth::user() }}"
                         ></chat-form>
+
                     </div>
+
                 </div>
+
 
 
 

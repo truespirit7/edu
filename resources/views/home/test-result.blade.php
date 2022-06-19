@@ -10,9 +10,9 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>
+{{--                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>--}}
+{{--                            <li class="breadcrumb-item"><a href="#">Blog</a></li>--}}
+{{--                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>--}}
                         </ol>
                     </nav>
                 </div>
@@ -53,13 +53,11 @@
                                 <!-- Share -->
                                 <form action="" method="post">
                                     @foreach($questions as $question)
-                                        {{$results[$question->id]}}
                                     <input type="hidden" name="q" value="123">
 
                                     <div class="row justify-content-center">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="text-center mt-5">
-                                                <p>Вопрос {{count($questions)}}</p>
                                             </div>
                                             <div class="card mt-3">
                                                 <div class="card-header">
@@ -67,12 +65,20 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div>
-                                                        <input type="radio" name="answer_id" >{!! $question->answer_true !!}
-                                                        <input type="radio" name="answer_id" > {!! $question->answer_false !!}
+                                                        <input type="radio" name="answer_id" @if($results[$question->id] == "Верно!") checked @endif>{!! $question->answer_true !!}
+                                                        <input type="radio" class="ml-30" name="answer_id" @if($results[$question->id] == "Неверно.") checked @endif> {!! $question->answer_false !!}
                                                     </div>
 
                                                 </div>
                                             </div>
+                                            <p  @if($results[$question->id] == "Неверно.") class="text-danger font-weight-bold mt-15" @else class="text-success font-weight-bold mt-15" @endif >
+                                            {!! $results[$question->id] !!}
+                                            </p>
+                                            <p>
+                                                {!! $question->question_explanation!!}
+                                            </p>
+
+
 
 
                                         </div>

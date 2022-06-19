@@ -10,9 +10,9 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Журнал</a></li>
+                            <li class="breadcrumb-item"><a href="#">@foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$post->title}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -50,13 +50,10 @@
                             <!-- Post Text -->
                             <div class="post-text">
                                 <!-- Share -->
-                                <div class="post-share">
-                                    <span>Share</span>
+                                <div class="post-share ">
                                     <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                     <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                                     <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#" class="pin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
                                 </div>
                                 {!! $post->content !!}
                                 <!-- Post Tags & Share -->
@@ -132,14 +129,12 @@
                                                             <div class="comment-wrapper d-flex">
                                                                 <!-- Comment Meta -->
                                                                 <div class="comment-author">
-                                                                    <img src="img/blog-img/9.jpg" alt="">
+                                                                    <img src="/avatars/default-avatar.jpg" alt="">
                                                                 </div>
                                                 <div class="comment-content">
-                                                    <span class="comment-date">{{$comment->created_at}}MAY 10, 2018</span>
+                                                    <span class="comment-date">{{$comment->created_at}}</span>
                                                     <h5>{{$comment->name}}</h5>
                                                     <p>{{$comment->message}}</p>
-                                                    <a href="#">Like</a>
-                                                    <a class="active" href="#">Reply</a>
                                                 </div>
                                                 @endforeach
                                             </div>
@@ -162,22 +157,7 @@
 {{--                                                </li>--}}
 {{--                                            </ol>--}}
 {{--                                        </li>--}}
-                                        <li class="single_comment_area">
-                                            <div class="comment-wrapper d-flex">
-                                                <!-- Comment Meta -->
-                                                <div class="comment-author">
-                                                    <img src="img/blog-img/11.jpg" alt="">
-                                                </div>
-                                                <!-- Comment Content -->
-                                                <div class="comment-content">
-                                                    <span class="comment-date">MAY 24, 2018</span>
-                                                    <h5>Chris Hemsworth</h5>
-                                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi</p>
-                                                    <a href="#">Like</a>
-                                                    <a class="active" href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
+
                                     </ol>
                                 </div>
 

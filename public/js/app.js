@@ -22815,7 +22815,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "text",
     name: "message",
     "class": "form-control input-sm",
-    placeholder: "Type your message here...",
+    placeholder: "Скажите что-нибудь Сократу...",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.newMessage = $event;
     }),
@@ -22830,7 +22830,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[2] || (_cache[2] = function () {
       return $options.sendMessage && $options.sendMessage.apply($options, arguments);
     })
-  }, " Send ")])]);
+  }, " Отправить ")])]);
 }
 
 /***/ }),
