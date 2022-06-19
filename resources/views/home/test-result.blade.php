@@ -31,24 +31,29 @@
                     <!-- Post Details Area -->
                     <div class="single-post-details-area">
                         <div class="post-content">
-
-                            <div class="text-center mb-50">
+{{--                            @foreach($tests as $post_test)--}}
+{{--                                @if ($post_test['test_id'] == $test)--}}
+                                <div class="text-center mb-50">
 {{--                                <p class="post-date">{{$date->translatedFormat('d F Y')}} / @foreach ($categories as $category) @if ($category['id'] == $post['category_id']) {{ $category['title'] }} @endif  @endforeach </p>--}}
-                                <h2 class="post-title">Тест: "{{$test->title}}"</h2>
+                                <h2 class="post-title">Тест: "{{$test['title']}}"</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
                                     {{--                                    <a href="#"><span>by</span> Colorlib</a>--}}
 {{--                                    <a href="#"><span>Комментариев:</span> {{count($comments)}} </a>--}}
                                 </div>
                             </div>
+{{--                            @endif--}}
+{{--                        @endforeach--}}
 
 
 
                             <!-- Post Text -->
                             <div class="post-text">
+
                                 <!-- Share -->
-                                @foreach($questions as $question)
                                 <form action="" method="post">
+                                    @foreach($questions as $question)
+                                        {{$results[$question->id]}}
                                     <input type="hidden" name="q" value="123">
 
                                     <div class="row justify-content-center">
@@ -75,7 +80,7 @@
                                 </form>
                                 @endforeach
                                 <div class="text-center mt-3">
-                                    <button type="submit" href=" {{ route('test-result', $test) }} " class="btn btn-success">Получить результат</button>
+{{--                                    <button type="submit" href=" {{ route('test-result', $test) }} " class="btn btn-success">Получить результат</button>--}}
                                 </div>
 {{--                                <div class="post-share">--}}
 {{--                                    <span>Share</span>--}}

@@ -43,8 +43,8 @@
                             </div>
 
                             <!-- Post Thumbnail -->
-                            <div class="post-thumbnail mb-50">
-                                <img src="{{asset('storage/' . $post['preview_img'])}}" alt="">
+                            <div class="post-thumbnail mb-50 ">
+                                <img src="{{asset('storage/' . $post['preview_img'])}}" class="justify-content-center" alt="">
                             </div>
 
                             <!-- Post Text -->

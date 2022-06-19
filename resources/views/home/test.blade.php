@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Название теста')
+@section('title', 'Название поста')
 
 @section('content')
     <!-- ##### Breadcrumb Area Start ##### -->
@@ -37,8 +37,8 @@
                                 <h2 class="post-title">Тест: "{{$test->title}}"</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <a href="#"><span>by</span> Colorlib</a>
-                                    <a href="#">03 <span>Comments</span></a>
+                                    {{--                                    <a href="#"><span>by</span> Colorlib</a>--}}
+{{--                                    <a href="#"><span>Комментариев:</span> {{count($comments)}} </a>--}}
                                 </div>
                             </div>
 
@@ -46,94 +46,54 @@
 
                             <!-- Post Text -->
                             <div class="post-text">
-{{--                            {!! $post->content !!}--}}
+                                <!-- Share -->
+{{--                                @foreach($tests as $post_test)--}}
+{{--                                    @if ($post_test['test_id'] == $test['id'])--}}
+                                <form action="{{ route('test-result', $test) }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                @foreach($questions as $question)
+                                    <input type="hidden" name="q" value="123">
 
-                                @foreach ($questions as $question)
-                                    <h3 >Вопрос 1</h3>
-                                {!! $question->question_text !!}
-                                    <input type="radio" id="qwe"
-                                           name="contact" value="email">
-                                    <label for="contactChoice1">{{$question->answer_true}}</label>
-
-                                    <input type="radio" id="qwe"
-                                           name="contact" value="phone">
-                                    <label for="contactChoice2">{{$question->answer_false}}</label>
-
-{{--                                <input type="checkbox" name="answer" value="{{$question->answer_true}}" onclick="">--}}
-{{--                                <input type="checkbox" name="answer" value="{{$question->answer_false}}" onclick="">--}}
-
-                            @endforeach
-                            <!-- Share -->
-                                <div class="post-share">
-                                    <span>Share</span>
-                                    <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                    <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="#" class="pin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
-                                </div>
-
-                                <div class="single-widget-area mb-30">
-                                    <!-- Title -->
-                                    <div class="widget-title">
-                                        <a href=" {{ route('test-result', $test) }} " class="title">
-                                            <h6>Узнать результат теста</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            {{--                                {!! $post->content !!}--}}
-                                <!-- Post Tags & Share -->
-
-
-                                <!-- Related Post Area -->
-                                <div class="related-posts clearfix">
-                                    <!-- Headline -->
-                                    <h4 class="headline">related posts</h4>
-
-                                    <div class="row">
-
-                                        <!-- Single Blog Post -->
-                                        <div class="col-12 col-lg-6">
-                                            <div class="single-blog-post mb-50">
-                                                <!-- Thumbnail -->
-                                                <div class="post-thumbnail">
-                                                    <a href="#"><img src="img/blog-img/1.jpg" alt=""></a>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6">
+                                            <div class="text-center mt-5">
+                                                <p>Вопрос {{count($questions)}}</p>
+                                            </div>
+                                            <div class="card mt-3">
+                                                <div class="card-header">
+                                                    <h3>{!! $question->question_text !!}</h3>
                                                 </div>
-                                                <!-- Content -->
-                                                <div class="post-content">
-                                                    <p class="post-date">MAY 17, 2018 / lifestyle</p>
-                                                    <a href="#" class="post-title">
-                                                        <h4>A Closer Look At Our Front Porch Items From Lowe’s</h4>
-                                                    </a>
-                                                    <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+                                                <div class="card-body">
+                                                    <div>
+                                                        <input type="radio" name="answer_question_{{$question->id}}" value="{{$question->answer_true}}" >{!! $question->answer_true !!}
+                                                        <input type="radio" name="answer_question_{{$question->id}}" value="{{$question->answer_false}}" >  {!! $question->answer_false !!}
+                                                    </div>
+
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Single Blog Post -->
-                                        <div class="col-12 col-lg-6">
-                                            <div class="single-blog-post mb-50">
-                                                <!-- Thumbnail -->
-                                                <div class="post-thumbnail">
-                                                    <a href="#"><img src="img/blog-img/4.jpg" alt=""></a>
-                                                </div>
-                                                <!-- Content -->
-                                                <div class="post-content">
-                                                    <p class="post-date">MAY 25, 2018 / Fashion</p>
-                                                    <a href="#" class="post-title">
-                                                        <h4>5 Things to Know About Dating a Bisexual</h4>
-                                                    </a>
-                                                    <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
 
+                                        </div>
                                     </div>
+                                @endforeach
+
+                                    <button type="submit" class="btn btn-success">Получить результат</button>
+
+                                </form>
+{{--                                    @endif--}}
+{{--                            @endforeach--}}
+
+
+                                        <div class="text-center mt-3">
                                 </div>
-
-
-
+{{--                                <div class="post-share">--}}
+{{--                                    <span>Share</span>--}}
+{{--                                    <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>--}}
+{{--                                    <a href="#" class="pin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></a>--}}
+{{--                                </div>--}}
 
                             </div>
                         </div>

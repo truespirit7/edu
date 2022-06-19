@@ -24,7 +24,7 @@ class TestController extends Controller
         $categories = Category::orderBy('created_at', 'DESC')->get();
         $postTags = PostTag::orderBy('created_at', 'DESC')->get();
         $questions = TestQuestion::where('test_id','=', $test->id)->get();
-
+        $tests = Test::orderBy('created_at', 'DESC')->get();
         $tags = Tag::orderBy('created_at', 'DESC')->get();
 //        $date = Carbon::parse($post->created_at);
 //        $postsByCategory = Post::where('category_id', '=', $post['category_id']);
@@ -33,6 +33,7 @@ class TestController extends Controller
             'categories' => $categories,
             'postTags' => $postTags,
             'tags' => $tags,
+            'tests'=>$tests,
             'test' => $test,
             'questions'=>$questions
 //            'comments'=>$comments,
@@ -40,6 +41,29 @@ class TestController extends Controller
 //            'date'=>$date
         ]);
     }
+public function showResult(Request $request, $test){
+    $questions = TestQuestion::where('test_id','=', $test)->get();
+    $results = [];
+    foreach ($questions as $question){
+        $answer = $request['answer_question_' . $question->id];
+        if($question->answer_true == $answer){
+            $results[$question->id] = 'Верно!';
+        } else {
+            $results[$question->id] = 'Неверно.';
+        }
+    }
+    $post_test = Test::where('id','=', $test )->get();
+    $post_test  = $post_test[0];
+    $categories = Category::orderBy('created_at', 'DESC')->get();
+//    =$request['']
+
+    return view('home.test-result', [
+        'categories' => $categories,
+        'test'=>$post_test,
+//        'test' => $test,
+        'questions'=>$questions,
+        'results'=>$results
+    ]);}
 
 
 }
