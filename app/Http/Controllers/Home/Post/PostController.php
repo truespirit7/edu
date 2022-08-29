@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Like;
+
 
 class PostController extends Controller
 {
@@ -37,7 +39,16 @@ class PostController extends Controller
             'postsByCategory'=>$postsByCategory->paginate(2),
             'date'=>$date
         ]);
+
+    }
+    public function showLikes($post){
+    return count(Like::where('post_id','=', $post)->get());
     }
 
+    public function likeToPost(Post $post){
 
+    }
+    public function deleteLike(Post $post){
+
+    }
 }

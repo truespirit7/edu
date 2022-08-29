@@ -11,10 +11,13 @@ const echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: true
 });
-import { createApp } from 'vue';
+import {createApp, onMounted} from 'vue';
 
 import chatForm from './components/ChatForm.vue'
 import chatMessages from './components/ChatMessages.vue'
+import Reaction from './components/Reaction.vue';
+import SearchForm from "./components/searchForm";
+
 
 const app = createApp({
     data() {
@@ -52,11 +55,12 @@ const app = createApp({
 });
 app.component('chat-form', chatForm);
 app.component('chat-messages', chatMessages);
+app.component('reaction', Reaction);
+app.component('search-form', SearchForm);
 
 
 
 app.mount('#root');
-
 
 // export default {
 //     data() {

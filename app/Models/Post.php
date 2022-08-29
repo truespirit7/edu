@@ -18,4 +18,6 @@ class Post extends Model
     public function tags(){
         return $this->belongsToMany('App\Models\Tag', 'post_tags', 'post_id', 'tag_id');
     }
+    public function likes(){
+        return $this->belongsToMany( 'App\Models\User', 'likes', 'post_id', 'user_id');    }
 }

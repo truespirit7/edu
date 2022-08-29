@@ -58,7 +58,7 @@ class ChatbotController extends Controller
         broadcast(new MessageSent($user, $message))->toOthers();
 
         $url = 'http://10.8.0.5:8020/dialog';
-
+     
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_POST, true);

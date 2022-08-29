@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\PostTag;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class IndexController extends Controller
 {
@@ -35,15 +36,16 @@ public function index($categoryId = 0 )
         return view('home.index', [ 'posts'=> $posts->paginate(6) , 'categories' => $categories, 'tags' => $tags ] );
 
     }
-//    public function indexBySearch( Request $request ){
-//    dd($request->search);
-//    //        $posts = Post::latest();
-////        $tags = Tag::orderBy('created_at', 'DESC')->get();
-////        $categories = Category::orderBy('created_at', 'DESC')->get();
-////        $searched_posts = $posts -> where('title','like', '%'. $request->search.'%' )->get();
-////        return view('home.index', [ 'posts'=> $searched_posts->paginate(6) , 'categories' => $categories, 'tags' => $tags ] );
-//
-//    }
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search( Request $request){
+    $query = $request->input('query');
+    $posts = Post::where('title', 'like', '%'.$query.'%')->get();
+    return response()->json($posts);
+    }
 
 
 
