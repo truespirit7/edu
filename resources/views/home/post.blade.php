@@ -1,8 +1,16 @@
 @extends('layouts.main')
 
 @section('title', 'Название поста')
+@section('head')
+<style>
+    .fa-thumbs-up:hover{
+        color: forestgreen;
+    }
 
+</style>
 @section('content')
+
+
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <div class="container">
@@ -56,7 +64,14 @@
                                     <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                 </div>
                                 {!! $post->content !!}
-                                <!-- Post Tags & Share -->
+{{--                                <div id="root">--}}
+{{--                                    <reaction></reaction>--}}
+{{--                                    <script src="{{ asset('js/app.js') }}" ></script>--}}
+
+{{--                                </div>--}}
+
+
+                            <!-- Post Tags & Share -->
                                 <div class="post-tags-share">
                                     <!-- Tags -->
                                     <ol class="popular-tags d-flex flex-wrap">
@@ -74,17 +89,16 @@
                                 </div>
                                 @foreach($tests as $test)
                                     @if ($test['post_id'] == $post['id'])
-                                <div class="single-widget-area mb-30">
-                                    <!-- Title -->
-                                    <div class="widget-title">
-                                        <a href=" {{ route('test', $test) }} " class="title">
-                                        <h6>Пройти тест:"{{$test['title']}}"</h6>
-                                        </a>
-                                    </div>
-                                </div>
+                                        <div class="single-widget-area mb-30">
+                                            <!-- Title -->
+                                            <div class="widget-title">
+                                                <a href=" {{ route('test', $test) }} " class="title">
+                                                    <h6>Пройти тест:"{{$test['title']}}"</h6>
+                                                </a>
+                                            </div>
+                                        </div>
                                 @endif
                             @endforeach
-
                                 <!-- Related Post Area -->
                                 <div class="related-posts clearfix">
                                     <!-- Headline -->
@@ -116,7 +130,6 @@
 
                                     </div>
                                 </div>
-
                                 <!-- Comment Area Start -->
                                 <div class="comment_area clearfix">
                                     <h4 class="headline">Комментариев: {{count($comments)}}</h4>
@@ -160,12 +173,10 @@
 
                                     </ol>
                                 </div>
-
                                 <!-- Leave A Comment -->
                                 <div class="leave-comment-area clearfix">
                                     <div class="comment-form">
                                         <h4 class="headline">Оставить комментарий</h4>
-
                                         <!-- Comment Form -->
                                         <form method="post" action="{{route('article.comment.store', $post->id)}}" >
                                             @csrf
@@ -202,3 +213,7 @@
     </section>
     <!-- ##### Blog Content Area End ##### -->
 @endsection
+
+<script>
+
+</script>

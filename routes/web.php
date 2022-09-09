@@ -29,19 +29,24 @@ Route::get('/', [App\Http\Controllers\Home\IndexController::class, 'index'])->na
 Route::get('/category/{category}', [App\Http\Controllers\Home\IndexController::class, 'index'])->name('postsByCategory');
 Route::get('/tag/{tag}', [App\Http\Controllers\Home\IndexController::class, 'indexByTag'])->name('postsByTag');
 Route::get('/article/{post}', [App\Http\Controllers\Home\Post\PostController::class, 'showPost'])->name('article');
-//Route::get('/?search=', [App\Http\Controllers\Home\IndexController::class, 'indexBySearch'])->name('postsBySearch');
+Route::post('/search', [App\Http\Controllers\Home\IndexController::class, 'search'])->name('search');
 
 Route::get('/article/{post}', [App\Http\Controllers\Home\Post\PostController::class, 'showPost'])->name('article');
 Route::get('/article/test/{test}', [App\Http\Controllers\Home\Post\TestController::class, 'showTest'] )->name('test');
 Route::post('/article/test/result/{test}', [App\Http\Controllers\Home\Post\TestController::class, 'showResult'] )->name('test-result');
+Route::post('/article/{id}/like', [App\Http\Controllers\Home\Post\PostController::class, 'showLikes'])->name('likeToPost');
+Route::delete('/article/{id}/like', [App\Http\Controllers\Home\Post\PostController::class, 'deleteLike'])->name('deleteLikeToPost') ;
+Route::post('/article/{post}/comment', [App\Http\Controllers\Home\Post\CommentController::class, 'storeComment'])->name('article.comment.store');
+//Route::  group([ 'namespace' => 'Comment', 'prefix' => '/{post}/comments'], function () {
+//    Route::post('/', [App\Http\Controllers\Home\Post\CommentController::class, 'storeComment'])->name('article.comment.store');
+//});
+
+
 Route::get('/chatbot/', [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'openChatbot'])->name('chatbot');
 //Route::post('/chatbot/messages', [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'sendMessage'])->name('send-message');
 Route::post('/chatbot/messages', [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'sendMessage'])->name('send-message');
 Route::get('/chatbot/messages',  [App\Http\Controllers\Home\Chatbot\ChatbotController::class, 'fetchMessages'])->name('fetch-messages');
 
-Route::  group([ 'namespace' => 'Comment', 'prefix' => '/{post}/comments'], function () {
-        Route::post('/', [App\Http\Controllers\Home\Post\CommentController::class, 'storeComment'])->name('article.comment.store');
-});
 
 
 Auth::routes();

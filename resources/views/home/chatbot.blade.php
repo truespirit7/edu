@@ -103,7 +103,7 @@
     {{--    </div>--}}
     <div  class="flex-center position-ref full-height chat-root">
         <div class="chat-title font-italic"><h1>Нейронный Сократ</h1></div>
-        <div class=" chat-container">
+        <div class="chat-container">
             <div class="row" id="root" >
                 <div class="panel panel-default">
                     <chat-messages :messages="messages"></chat-messages>

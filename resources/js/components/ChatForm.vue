@@ -10,7 +10,6 @@
             </button>
         </span>
     </div>
-    <a href=""><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
 
 </template>
 

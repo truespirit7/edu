@@ -69,7 +69,7 @@
                                         <div class="megamenu">
                                             <ul class="single-mega  ">
                                                 @foreach ($categories as $category)
-                                                    <li><a href="#">- {{ $category['title'] }}</a></li>
+                                                    <li><a href="{{route('postsByCategory', $category)}}">- {{ $category['title'] }}</a></li>
                                                 @endforeach
 
 
@@ -86,12 +86,19 @@
                                 </ul>
 
                                 <!-- Search Form -->
-                                <div class="search-form">
-                                    <form action="" method="get">
-                                        <input type="search" name="search" class="form-control" placeholder="Введите для поиска">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                    </form>
+                                <div id="root">
+
+
+                                    <search-form></search-form>                                    <script src="{{ asset('js/app.js') }}" ></script>
+
                                 </div>
+
+{{--                                <div class="search-form">--}}
+{{--                                    <form action="" method="get">--}}
+{{--                                        <input type="search" name="search" class="form-control" placeholder="Введите для поиска">--}}
+{{--                                        <button type="submit"><i class="fa fa-search"></i></button>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
                                 @guest
                                     <li><a href={{route('login')}}>Войти</a></li>
                                 @else
