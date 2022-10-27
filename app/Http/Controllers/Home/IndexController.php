@@ -12,14 +12,14 @@ use Symfony\Component\Console\Input\Input;
 
 class IndexController extends Controller
 {
-public function index($categoryId = 0 )
+public function index($categoryId )
 {
     $tags = Tag::orderBy('created_at', 'DESC')->get();
     $categories = Category::orderBy('created_at', 'DESC')->get();
 
     $posts = Post::latest();
     if($categoryId){
-        $posts -> where('category_id', $categoryId);
+        $posts = $posts -> where('category_id', $categoryId);
     }
     return view('home.index', [ 'posts'=> $posts->paginate(6), 'categories' => $categories , 'tags' => $tags ] );
 }
@@ -32,6 +32,20 @@ public function index($categoryId = 0 )
         if($tagId){
             $postTags = $postTags -> where('tag_id', $tagId)->pluck('post_id');
             $posts -> where('id', $postTags);
+        }
+        return view('home.index', [ 'posts'=> $posts->paginate(6) , 'categories' => $categories, 'tags' => $tags ] );
+
+    }
+
+    public function indexByCat($categoryId = 0 )
+    {
+        $tags = Tag::orderBy('created_at', 'DESC')->get();
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+        $postTags = PostTag::orderBy('created_at', 'DESC')->get();
+        $posts = Post::latest();
+        if($categoryId){
+            $posts = $posts -> where('category_id', $categoryId);
+
         }
         return view('home.index', [ 'posts'=> $posts->paginate(6) , 'categories' => $categories, 'tags' => $tags ] );
 
